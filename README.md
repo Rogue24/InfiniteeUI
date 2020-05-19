@@ -1,6 +1,6 @@
 # InfiniteeUI
 
-![InfiniteeUI](https://github.com/Rogue24/InfiniteeUI/raw/master/InfiniteeUI/Main/Resources/images/infiniteeUiLogo.png)
+![InfiniteeUI](https://github.com/Rogue24/InfiniteeUI/raw/master/Example/InfiniteeUI/Main/Resources/images/infiniteeUiLogo.png)
 
 > Infinitee，以前很用心做的一个项目，已经下架了，挺可惜的。个人感觉项目的UI部分做得还可以的，将把UI部分以模块化方式整合出来以供参考。
 
