@@ -13,6 +13,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [JPProgressHUD setMaxSupportedWindowLevel:UIWindowLevelAlert];
+    [JPProgressHUD setMinimumDismissTimeInterval:1.5];
+    [JPProgressHUD setCustomStyle];
+    [JPProgressHUD setBackgroundColor:InfiniteeBlue];
+    [JPProgressHUD setForegroundColor:[UIColor whiteColor]];
+    [JPProgressHUD setSuccessImage:[UIImage imageNamed:@"wolive_smile"]];
+    [JPProgressHUD setErrorImage:[UIImage imageNamed:@"wolive_sad"]];
+    [JPProgressHUD setInfoImage:[UIImage imageNamed:@"wolive_info"]];
     return YES;
 }
 

@@ -1,9 +1,17 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
 use_frameworks!
 
 platform :ios, '8.0'
 
 target 'InfiniteeUI_Example' do
-  pod 'InfiniteeUI', :path => '../'
+  
+  pod 'JPLiquidLayout'
+  pod 'JPBasic'
+  pod 'MJExtension'
+  pod 'MJRefresh'
+  pod 'Shimmer'
+  pod 'YYWebImage'
 
   target 'InfiniteeUI_Tests' do
     inherit! :search_paths

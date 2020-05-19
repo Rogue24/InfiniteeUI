@@ -1,29 +1,23 @@
 # InfiniteeUI
 
-[![CI Status](https://img.shields.io/travis/zhoujianping24@hotmail.com/InfiniteeUI.svg?style=flat)](https://travis-ci.org/zhoujianping24@hotmail.com/InfiniteeUI)
-[![Version](https://img.shields.io/cocoapods/v/InfiniteeUI.svg?style=flat)](https://cocoapods.org/pods/InfiniteeUI)
-[![License](https://img.shields.io/cocoapods/l/InfiniteeUI.svg?style=flat)](https://cocoapods.org/pods/InfiniteeUI)
-[![Platform](https://img.shields.io/cocoapods/p/InfiniteeUI.svg?style=flat)](https://cocoapods.org/pods/InfiniteeUI)
+![InfiniteeUI](https://github.com/Rogue24/InfiniteeUI/raw/master/InfiniteeUI/Main/Resources/images/infiniteeUiLogo.png)
 
-## Example
+> Infinitee，以前很用心做的一个项目，已经下架了，挺可惜的。个人感觉项目的UI部分做得还可以的，将把UI部分以模块化方式整合出来以供参考。
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+该项目是3年前写的，参合了MVC和MVVC的模式开发，代码可能会比较乱，见笑。
 
-## Requirements
+目前包含以下部分模块：
 
-## Installation
+## 晒单转区
+## 个人主页
+## 产品详情页
+## 商品详情页
+## 作品详情页
+## 主题活动中心
 
-InfiniteeUI is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+#### 将不定期更新。
 
-```ruby
-pod 'InfiniteeUI'
-```
+## Feedback address
 
-## Author
-
-zhoujianping24@hotmail.com, zhoujianping24@hotmail.com
-
-## License
-
-InfiniteeUI is available under the MIT license. See the LICENSE file for more info.
+    E-mail: zhoujianping24@hotmail.com
+    Blog: https://www.jianshu.com/u/2edfbadd451c
