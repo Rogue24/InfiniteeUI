@@ -9,22 +9,22 @@
 目前先整合以下部分模块：
 
 ## 晒单转区
-![classic](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/sunorder.gif)
+![sunorder](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/sunorder.gif)
 
 ## 个人主页（整合ing）
-![classic](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/profile.gif)
+![profile](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/profile.gif)
 
 ## 产品详情页（整合ing）
-![classic](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/shopstyle.gif)
+![shopstyle](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/shopstyle.gif)
 
 ## 商品详情页（整合ing）
-![classic](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/goods.gif)
+![goods](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/goods.gif)
 
 ## 作品详情页（整合ing）
-![classic](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/works.gif)
+![works](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/works.gif)
 
 ## 主题活动中心（整合ing）
-![classic](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/theme.gif)
+![theme](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/theme.gif)
 
 
     ---- 喜欢的话可以✨，将陆续整合其他模块，不定时更新。
