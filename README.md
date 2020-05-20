@@ -9,15 +9,27 @@
 目前先整合以下部分模块：
 
 ## 晒单转区
-## 个人主页
-## 产品详情页
-## 商品详情页
-## 作品详情页
-## 主题活动中心
+![classic](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/sunorder.gif)
 
-#### 陆续更新。
+## 个人主页（整合ing）
+![classic](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/profile.gif)
 
-## Feedback address
+## 产品详情页（整合ing）
+![classic](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/shopstyle.gif)
+
+## 商品详情页（整合ing）
+![classic](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/goods.gif)
+
+## 作品详情页（整合ing）
+![classic](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/works.gif)
+
+## 主题活动中心（整合ing）
+![classic](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/theme.gif)
+
+
+    ---- 喜欢的话可以✨，将陆续整合其他模块，不定时更新。
+
+## 反馈地址
 
     E-mail: zhoujianping24@hotmail.com
     Blog: https://www.jianshu.com/u/2edfbadd451c
