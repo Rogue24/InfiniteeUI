@@ -26,7 +26,9 @@
 ## 主题活动中心（整合ing）
 ![theme](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/theme.gif)
 
-    
+## 悬浮素材列表（整合ing）
+![material](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/material.gif)
+
     - 喜欢的话可以✨，若发现bug请反馈（毕竟新手工程）~
     - 将陆续整合其他模块，不定时更新。
 
