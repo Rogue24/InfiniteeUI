@@ -14,8 +14,6 @@
 
 @interface JPBrowseImagesViewController () <UIViewControllerTransitioningDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UIGestureRecognizerDelegate>
 @property (nonatomic, assign) BOOL isPresentDone;
-@property (nonatomic, assign) BOOL isShowProgress;
-@property (nonatomic, assign) BOOL isShowNavigationBar;
 @property (nonatomic, assign) UIStatusBarStyle statusBarStyle;
 
 @property (nonatomic, weak) JPBrowseImageCell *currCell;
@@ -25,7 +23,7 @@
 @property (nonatomic, assign) BOOL isTapToHideNav; // 是否单击隐藏，如果是，说明是用户点击隐藏的，下拉缩小恢复后就继续隐藏
 @property (nonatomic, assign) NSInteger scrollIndex; // 滚动中的下标，四舍五入
 
-@property (nonatomic, weak) UIImageView *originImgView;
+@property (nonatomic, weak) UIView *originImgView;
 @property (nonatomic, weak) UIImageView *transitionImgView;
 @end
 
@@ -37,7 +35,9 @@ static NSInteger const JPViewMargin = 10;
 #pragma mark - 转场动画
 
 - (void)willTransitionAnimateion:(BOOL)isPresent {
-    self.originImgView = [self.delegate respondsToSelector:@selector(getOriginImageView:)] ? [self.delegate getOriginImageView:self.currIndex] : nil;
+    UIView *originImgView = [self.delegate respondsToSelector:@selector(getOriginImageView:)] ? [self.delegate getOriginImageView:self.currIndex] : nil;
+    self.originImgView = originImgView;
+    
     UIStatusBarStyle statusBarStyle;
     if (isPresent) {
         self.bgView.alpha = 0;
@@ -48,14 +48,14 @@ static NSInteger const JPViewMargin = 10;
         
         JPBrowseImageModel *currModel = self.dataSource[self.currIndex];
         UIImageView *transitionImgView;
-        if (self.originImgView) {
-            CGRect originPicFrame = [self.originImgView convertRect:self.originImgView.bounds toView:[UIApplication sharedApplication].keyWindow];
+        if (originImgView) {
+            CGRect originPicFrame = [originImgView convertRect:originImgView.bounds toView:[UIApplication sharedApplication].keyWindow];
             transitionImgView = [[UIImageView alloc] initWithFrame:originPicFrame];
-            transitionImgView.image = self.originImgView.image;
-            transitionImgView.backgroundColor = self.originImgView.backgroundColor;
-            transitionImgView.contentMode = self.originImgView.contentMode;
-            transitionImgView.layer.masksToBounds = self.originImgView.layer.masksToBounds;
-            if (currModel.isCornerRadiusTransition) transitionImgView.layer.cornerRadius = self.originImgView.layer.cornerRadius;
+            transitionImgView.backgroundColor = originImgView.backgroundColor;
+            transitionImgView.contentMode = originImgView.contentMode;
+            transitionImgView.layer.masksToBounds = originImgView.layer.masksToBounds;
+            if ([originImgView respondsToSelector:@selector(image)]) transitionImgView.image = [originImgView performSelector:@selector(image)];
+            if (currModel.isCornerRadiusTransition) transitionImgView.layer.cornerRadius = originImgView.layer.cornerRadius;
             if (currModel.isAlphaTransition) transitionImgView.alpha = 0;
         }
         [self.view addSubview:transitionImgView];
@@ -65,14 +65,16 @@ static NSInteger const JPViewMargin = 10;
     } else {
         statusBarStyle = self.statusBarStyle;
         self.currCell.isDismiss = YES;
-        CGRect imgViewFrame = self.currCell.imageView.frame;
+        self.transitionImgView = self.currCell.imageView;
+        CGRect imgViewFrame = [self.transitionImgView.superview convertRect:self.transitionImgView.frame toView:[UIApplication sharedApplication].keyWindow];
         [CATransaction begin];
         [CATransaction setDisableActions:YES];
-        self.currCell.imageView.layer.transform = CATransform3DIdentity;
-        self.currCell.imageView.frame = imgViewFrame;
+        self.transitionImgView.layer.transform = CATransform3DIdentity;
+        self.transitionImgView.frame = imgViewFrame;
+        [[UIApplication sharedApplication].keyWindow addSubview:self.transitionImgView];
         if (self.originImgView) {
-            self.currCell.imageView.contentMode = self.originImgView.contentMode;
-            self.currCell.imageView.layer.masksToBounds = self.originImgView.layer.masksToBounds;
+            self.transitionImgView.contentMode = originImgView.contentMode;
+            self.transitionImgView.layer.masksToBounds = originImgView.layer.masksToBounds;
         }
         [CATransaction commit];
     }
@@ -83,20 +85,23 @@ static NSInteger const JPViewMargin = 10;
 }
 
 - (void)transitionAnimateion:(BOOL)isPresent {
+    UIImageView *transitionImgView = self.transitionImgView;
     if (isPresent) {
         self.bgView.alpha = 1;
-        self.transitionImgView.frame = self.dataSource[self.currIndex].pictureFrame;
-        self.transitionImgView.layer.cornerRadius = 0;
-        self.transitionImgView.alpha = 1;
+        JPBrowseImageModel *model = self.dataSource[self.currIndex];
+        transitionImgView.frame = CGRectMake(model.contentInset.left, model.contentInset.top, model.contentSize.width, model.contentSize.height);
+        transitionImgView.layer.cornerRadius = 0;
+        transitionImgView.alpha = 1;
     } else {
         if (self.originImgView) {
+            UIView *originImgView = self.originImgView;
             self.bgView.alpha = 0;
-            CGRect originPicFrame = [self.originImgView convertRect:self.originImgView.bounds toView:[UIApplication sharedApplication].keyWindow];
-            originPicFrame.origin.y += self.currCell.scrollView.contentOffset.y;
-            self.currCell.imageView.frame = originPicFrame;
-            if (self.currCell.model.isCornerRadiusTransition) self.currCell.imageView.layer.cornerRadius = self.originImgView.layer.cornerRadius;
-            if (self.currCell.model.isAlphaTransition) self.currCell.imageView.alpha = 0;
+            CGRect originPicFrame = [originImgView convertRect:originImgView.bounds toView:[UIApplication sharedApplication].keyWindow];
+           transitionImgView.frame = originPicFrame;
+            if (self.currCell.model.isCornerRadiusTransition) transitionImgView.layer.cornerRadius = originImgView.layer.cornerRadius;
+            if (self.currCell.model.isAlphaTransition) transitionImgView.alpha = 0;
         } else {
+            transitionImgView.alpha = 0;
             self.view.alpha = 0;
         }
     }
@@ -115,16 +120,15 @@ static NSInteger const JPViewMargin = 10;
         }
         self.isPresentDone = YES;
         [self.currCell showImageView];
-        [UIView animateWithDuration:0.15 animations:^{
-            transitionImgView.alpha = 0;
-        } completion:^(BOOL finished) {
-            [transitionImgView removeFromSuperview];
-            !complete ? : complete();
-        }];
     } else {
         if ([self.delegate respondsToSelector:@selector(dismissComplete:)]) [self.delegate dismissComplete:self.currIndex];
-        !complete ? : complete();
     }
+    [UIView animateWithDuration:0.15 animations:^{
+        transitionImgView.alpha = 0;
+    } completion:^(BOOL finished) {
+        [transitionImgView removeFromSuperview];
+        !complete ? : complete();
+    }];
 }
 
 #pragma mark dismiss动画
@@ -146,12 +150,7 @@ static NSInteger const JPViewMargin = 10;
     self.topView.index = scrollIndex;
     
     JPBrowseImageModel *model = self.dataSource[scrollIndex];
-    JPPictureInfoModel *infoModel = model.infoModel;
-    self.bottomView.synopsis = infoModel.synopsis;
-}
-
-- (void)setCurrIndex:(NSInteger)currIndex {
-    _currIndex = currIndex;
+    self.bottomView.synopsis = model.synopsis;
 }
 
 #pragma mark - 初始化
@@ -162,7 +161,7 @@ static NSInteger const JPViewMargin = 10;
                                         isShowProgress:(BOOL)isShowProgress
                                    isShowNavigationBar:(BOOL)isShowNavigationBar {
     if (totalCount <= 0) {
-        NSLog(@"别搞笑，重新弄");
+        JPLog(@"别搞笑，重新弄");
         return nil;
     }
     
@@ -173,46 +172,35 @@ static NSInteger const JPViewMargin = 10;
     }
     
     JPBrowseImagesViewController *browseVC = [[JPBrowseImagesViewController alloc] initWithIsShowProgress:isShowProgress isShowNavigationBar:isShowNavigationBar];
-    browseVC.currIndex = currIndex;
+    browseVC->_currIndex = currIndex;
     browseVC.delegate = delegate;
     
     NSMutableArray *models = [NSMutableArray array];
-    CGFloat w = browseVC.contentFrame.size.width;
-    CGFloat x = 0;
     
-    BOOL canGetOriginImageView = [delegate respondsToSelector:@selector(getOriginImageView:)];
     BOOL isSetCornerRadiusTransition = [delegate respondsToSelector:@selector(isCornerRadiusTransition:)];
     BOOL isSetAlphaTransition = [delegate respondsToSelector:@selector(isAlphaTransition:)];
     BOOL canGetImageHWScale = [delegate respondsToSelector:@selector(getImageHWScale:)];
+    BOOL canGetImageSynopsis = isShowNavigationBar && [delegate respondsToSelector:@selector(getImageSynopsis:)];
     
     for (NSInteger i = 0; i < totalCount; i++) {
         JPBrowseImageModel *model = [[JPBrowseImageModel alloc] init];
+        model.index = i;
         
         if (isSetCornerRadiusTransition) model.isCornerRadiusTransition = [delegate isCornerRadiusTransition:i];
         if (isSetAlphaTransition) model.isAlphaTransition = [delegate isAlphaTransition:i];
         
-        CGFloat h = w;
-        if (canGetOriginImageView) {
-            UIImageView *originImgView = [delegate getOriginImageView:i];
-            if (originImgView.image) {
-                model.placeHolderImage = originImgView.image;
-                h *= (model.placeHolderImage.size.height / model.placeHolderImage.size.width);
-            }
-        }
-        if (h == w && canGetImageHWScale) {
+        if (canGetImageHWScale) {
+            CGFloat w = JPPortraitScreenWidth;
+            CGFloat h = w;
             CGFloat hwScale = [delegate getImageHWScale:i];
-            if (hwScale > 0) h *= hwScale;
+            if (hwScale > 0) h = w * hwScale;
+            model.imageSize = CGSizeMake(w, h);
         }
         
-        CGFloat y = browseVC.contentFrame.origin.y + (browseVC.contentFrame.size.height - h) * 0.5;
-        if (y < browseVC.contentFrame.origin.y) y = browseVC.contentFrame.origin.y;
-        
-        model.pictureFrame = CGRectMake(x, y, w, h);
-        
-        // 显示导航信息（isShowNavigationBar）就得设置infoModel
-        JPPictureInfoModel *infoModel = [JPPictureInfoModel new];
-        infoModel.index = i;
-        model.infoModel = infoModel;
+        // 设置图片信息
+        if (canGetImageSynopsis) {
+            model.synopsis = [delegate getImageSynopsis:i];
+        }
         
         [models addObject:model];
     }
@@ -226,17 +214,11 @@ static NSInteger const JPViewMargin = 10;
         self.modalPresentationStyle = UIModalPresentationCustom;
         self.isShowProgress = isShowProgress;
         self.isShowNavigationBar = isShowNavigationBar;
-        CGFloat diffStatusBarH = 0;
-        CGFloat diffTabBarH = 0;
-        BOOL isX = [UIScreen mainScreen].bounds.size.height > 736.0;
-        if (isX) {
-            diffStatusBarH += 24;
-            diffTabBarH += 34;
-        }
-        _contentFrame = CGRectMake(0, diffStatusBarH, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - diffStatusBarH - diffTabBarH);
     }
     return self;
 }
+
+#pragma mark - 生命周期
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -247,7 +229,7 @@ static NSInteger const JPViewMargin = 10;
 
 - (void)dealloc {
 //    [[JPWebImageManager sharedInstance] clearMemory];
-    NSLog(@"图片浏览页面挂了，记得清除缓存");
+    JPLog(@"图片浏览页面挂了，记得清除缓存");
 }
 
 #pragma mark - 页面布局
@@ -255,8 +237,7 @@ static NSInteger const JPViewMargin = 10;
 - (void)setupBase {
     self.view.backgroundColor = [UIColor clearColor];
     
-    UIView *bgView = [[UIView alloc] init];
-    bgView.frame = [UIScreen mainScreen].bounds;
+    UIView *bgView = [[UIView alloc] initWithFrame:JPPortraitScreenBounds];
     bgView.backgroundColor = [UIColor blackColor];
     bgView.alpha = 0;
     [self.view addSubview:bgView];
@@ -269,23 +250,19 @@ static NSInteger const JPViewMargin = 10;
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.minimumLineSpacing = JPViewMargin;
     layout.minimumInteritemSpacing = JPViewMargin;
-    layout.itemSize = [UIScreen mainScreen].bounds.size;
+    layout.itemSize = JPPortraitScreenSize;
     layout.sectionInset = UIEdgeInsetsMake(0, JPViewMargin * 0.5, 0, JPViewMargin * 0.5);
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
-    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(-JPViewMargin * 0.5, 0, [UIScreen mainScreen].bounds.size.width + JPViewMargin, [UIScreen mainScreen].bounds.size.height) collectionViewLayout:layout];
-    if (@available(iOS 11.0, *)) {
-        collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-    } else {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
-    collectionView.backgroundColor = [UIColor clearColor];
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(-JPViewMargin * 0.5, 0, JPPortraitScreenWidth + JPViewMargin, JPPortraitScreenHeight) collectionViewLayout:layout];
+    [self jp_contentInsetAdjustmentNever:collectionView];
+    collectionView.backgroundColor = UIColor.clearColor;
     collectionView.delegate = self;
     collectionView.dataSource = self;
     collectionView.pagingEnabled = YES;
     collectionView.alwaysBounceHorizontal = YES;
     collectionView.showsHorizontalScrollIndicator = NO;
-    [collectionView registerClass:[JPBrowseImageCell class] forCellWithReuseIdentifier:JPBrowseImageCellID];
+    [collectionView registerClass:JPBrowseImageCell.class forCellWithReuseIdentifier:JPBrowseImageCellID];
     [self.view addSubview:collectionView];
     _collectionView = collectionView;
     
@@ -297,17 +274,25 @@ static NSInteger const JPViewMargin = 10;
     if (!self.isShowNavigationBar) return;
     
     JPBrowseImageModel *model = self.dataSource[self.currIndex];
-    JPPictureInfoModel *infoModel = model.infoModel;
     
-    JPBrowseImagesTopView *topView = [JPBrowseImagesTopView browseImagesTopViewWithPictureTotal:self.dataSource.count index:infoModel.index target:self dismissAction:@selector(dismiss) otherAction:@selector(otherHandle)];
+    JPBrowseImagesTopView *topView = [JPBrowseImagesTopView browseImagesTopViewWithPictureTotal:self.dataSource.count index:model.index target:self dismissAction:@selector(dismiss) otherAction:@selector(otherHandle)];
     topView.layer.opacity = 0;
     [self.view addSubview:topView];
     self.topView = topView;
-        
-    JPBrowseImagesBottomView *bottomView = [JPBrowseImagesBottomView browseImagesBottomViewWithSynopsis:infoModel.synopsis];
+    
+    JPBrowseImagesBottomView *bottomView = [JPBrowseImagesBottomView browseImagesBottomViewWithSynopsis:model.synopsis];
     bottomView.layer.opacity = 0;
     [self.view addSubview:bottomView];
     self.bottomView = bottomView;
+}
+
+#pragma mark - 导航栏事件处理
+
+- (void)otherHandle {
+    if ([self.delegate respondsToSelector:@selector(browseImagesVC:navigationOtherHandleWithModel:index:)]) {
+        JPBrowseImageModel *model = self.dataSource[self.currIndex];
+        [self.delegate browseImagesVC:self navigationOtherHandleWithModel:model index:self.currIndex];
+    }
 }
 
 #pragma mark - 导航栏动画
@@ -315,19 +300,22 @@ static NSInteger const JPViewMargin = 10;
 - (void)hideNavigationBar:(BOOL)isHideNavigationBar {
     if (!self.isShowNavigationBar) return;
     if (self.isHideNavigationBar == isHideNavigationBar) return;
-    
     self.isHideNavigationBar = isHideNavigationBar;
-    
-    CGFloat diffTabBarH = [UIScreen mainScreen].bounds.size.height > 736.0 ? 34 : 0;
     
     CGRect topViewF = self.topView.frame;
     CGRect bottomViewF = self.bottomView.frame;
     topViewF.origin.y = isHideNavigationBar ? -self.topView.frame.size.height : 0;
-    bottomViewF.origin.y = isHideNavigationBar ? [UIScreen mainScreen].bounds.size.height : ([UIScreen mainScreen].bounds.size.height - self.bottomView.frame.size.height - diffTabBarH);
+    bottomViewF.origin.y = isHideNavigationBar ? JPPortraitScreenHeight : (JPPortraitScreenHeight - self.bottomView.frame.size.height - JPDiffTabBarH);
     [UIView animateWithDuration:0.3 animations:^{
         self.topView.frame = topViewF;
         self.bottomView.frame = bottomViewF;
     }];
+}
+
+#pragma mark - UIGestureRecognizerDelegate
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return !self.collectionView.isDragging;
 }
 
 #pragma mark - UICollectionViewDataSource, UICollectionViewDelegate
@@ -337,42 +325,38 @@ static NSInteger const JPViewMargin = 10;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
     JPBrowseImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:JPBrowseImageCellID forIndexPath:indexPath];
     
-    __weak typeof(self) wSelf = self;
-    if (!cell.singleClickBlock) {
+    if (!cell.superVC) {
+        cell.superVC = self;
+        cell.panGRDelegate = self;
+        
+        @jp_weakify(self);
         cell.singleClickBlock = ^{
-            __strong typeof(wSelf) sSelf = wSelf;
-            if (!sSelf) return;
-            if (sSelf.isShowNavigationBar) {
-                [sSelf hideNavigationBar:!sSelf.isHideNavigationBar];
-                sSelf.isTapToHideNav = sSelf.isHideNavigationBar;
+            @jp_strongify(self);
+            if (!self) return;
+            if (self.isShowNavigationBar) {
+                [self hideNavigationBar:!self.isHideNavigationBar];
+                self.isTapToHideNav = self.isHideNavigationBar;
             } else {
-                [sSelf dismiss];
+                [self dismiss];
             }
         };
-    }
-    if (!cell.beginPanBlock) {
+        
         cell.beginPanBlock = ^{
-            __strong typeof(wSelf) sSelf = wSelf;
-            if (!sSelf) return;
-            [sSelf hideNavigationBar:YES];
+            @jp_strongify(self);
+            if (!self) return;
+            if (self.isShowNavigationBar) [self hideNavigationBar:YES];
         };
-    }
-    if (!cell.endPanBlock) {
+        
         cell.endPanBlock = ^{
-            __strong typeof(wSelf) sSelf = wSelf;
-            if (!sSelf) return;
-            if (!sSelf.isTapToHideNav) {
-                [sSelf hideNavigationBar:NO];
+            @jp_strongify(self);
+            if (!self) return;
+            if (self.isShowNavigationBar && !self.isTapToHideNav) {
+                [self hideNavigationBar:NO];
             }
         };
     }
-    
-    cell.isShowProgress = self.isShowProgress;
-    cell.superVC = self;
-    cell.panGRDelegate = self;
     
     NSInteger index = indexPath.item;
     
@@ -388,12 +372,6 @@ static NSInteger const JPViewMargin = 10;
     [cell setModel:self.dataSource[index] index:index];
     
     return cell;
-}
-
-#pragma mark - UIGestureRecognizerDelegate
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-    return YES;
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -416,7 +394,6 @@ static NSInteger const JPViewMargin = 10;
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    
     // scrollView的分页间距为scrollView的宽度
     
     // 需要加上左边间距（左边有5的间距被忽略了）
@@ -424,7 +401,7 @@ static NSInteger const JPViewMargin = 10;
     
     NSInteger lastIndex = self.currIndex;
     
-    self.currIndex = (NSInteger)(offsetX / scrollView.frame.size.width);
+    _currIndex = (NSInteger)(offsetX / scrollView.frame.size.width);
     
     if ([self.delegate respondsToSelector:@selector(flipImageViewWithLastIndex:currIndex:)]) {
         [self.delegate flipImageViewWithLastIndex:lastIndex currIndex:self.currIndex];
@@ -444,15 +421,6 @@ static NSInteger const JPViewMargin = 10;
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
     return [JPBrowseImagesTransition dismissTransition];
-}
-
-#pragma mark - 导航栏事件处理
-
-- (void)otherHandle {
-    if ([self.delegate respondsToSelector:@selector(browseImagesVC:navigationOtherHandleWithModel:index:)]) {
-        JPBrowseImageModel *model = self.dataSource[self.currIndex];
-        [self.delegate browseImagesVC:self navigationOtherHandleWithModel:model index:self.currIndex];
-    }
 }
 
 @end

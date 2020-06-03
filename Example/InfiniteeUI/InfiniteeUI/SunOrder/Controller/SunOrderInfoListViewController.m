@@ -156,6 +156,18 @@ static NSString *const SunOrderImageCellID = @"SunOrderImageCell";
     self.isDragUp = NO;
 }
 
+#pragma mark - 私有方法
+
+- (JPImageView *)getImageView:(NSInteger)index {
+    SunOrderImageModel *imageModel = self.socVM.soImageModels[index];
+    if (self.isImageText) {
+        return [self soImageTextImageViewWithImageModel:imageModel];
+    } else {
+        SunOrderImageCell *cell = (SunOrderImageCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:imageModel.allPicIndex inSection:0]];
+        return cell.imageView;
+    }
+}
+
 #pragma mark - 子类重写方法
 
 #pragma mark cell出现动画
@@ -638,16 +650,22 @@ static NSString *const SunOrderImageCellID = @"SunOrderImageCell";
 
 #pragma mark - <JPBrowseImagesDelegate>
 
-- (UIImageView *)getOriginImageView:(NSInteger)currIndex {
-    JPImageView *imageView;
-    SunOrderImageModel *currImageModel = self.socVM.soImageModels[currIndex];
-    if (self.isImageText) {
-        imageView = [self soImageTextImageViewWithImageModel:currImageModel];
-    } else {
-        SunOrderImageCell *currCell = (SunOrderImageCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:currImageModel.allPicIndex inSection:0]];
-        imageView = currCell.imageView;
+- (UIView *)getOriginImageView:(NSInteger)currIndex {
+    return [self getImageView:currIndex];
+}
+
+- (CGFloat)getImageHWScale:(NSInteger)currIndex {
+    UIImage *image = [self getImageView:currIndex].image;
+    if (image) {
+        return image.size.height / image.size.width;
     }
-    return (UIImageView *)imageView;
+    return 0;
+}
+
+- (NSString *)getImageSynopsis:(NSInteger)currIndex {
+    SunOrderImageModel *imageModel = self.socVM.soImageModels[currIndex];
+    SunOrderDetailViewModel *sodVM = self.socVM.detailVMs[imageModel.tableIndex];
+    return sodVM.soModel.content;
 }
 
 - (void)flipImageViewWithLastIndex:(NSInteger)lastIndex currIndex:(NSInteger)currIndex {
@@ -682,7 +700,7 @@ static NSString *const SunOrderImageCellID = @"SunOrderImageCell";
            progressBlock:(void (^)(NSInteger, JPBrowseImageModel *, float))progressBlock
            completeBlock:(void (^)(NSInteger, JPBrowseImageModel *, UIImage *))completeBlock {
     SunOrderImageModel *model = self.socVM.soImageModels[index];
-    UIImage *placeholderImage = [self getOriginImageView:index].image;
+    UIImage *placeholderImage = [self getImageView:index].image;
     __weak JPBrowseImageModel *wModel = cell.model;
     @jp_weakify(self);
     [cell.imageView jp_fakeSetPictureWithURL:[NSURL URLWithString:[model.baseURLStr jp_imageFormatURLWithSize:JPPortraitScreenSize]] placeholderImage:placeholderImage progress:^(float percent) {

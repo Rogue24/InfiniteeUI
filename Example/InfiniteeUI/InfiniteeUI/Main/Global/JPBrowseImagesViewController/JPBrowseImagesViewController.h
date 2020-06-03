@@ -10,6 +10,7 @@
 #import "JPBrowseImageCell.h"
 
 @protocol JPBrowseImagesDelegate <NSObject>
+@optional
 
 /*!
  @method
@@ -17,7 +18,7 @@
  @param currIndex --- 当前位置
  @discussion 一般用于打开的那个imageView
  */
-- (UIImageView *)getOriginImageView:(NSInteger)currIndex;
+- (UIView *)getOriginImageView:(NSInteger)currIndex;
 
 /*!
  @method
@@ -26,6 +27,14 @@
  @discussion 以屏幕宽度为基准，获取该值得到图片高度
  */
 - (CGFloat)getImageHWScale:(NSInteger)currIndex;
+
+/*!
+ @method
+ @brief 获取当前位置的图片简介信息
+ @param currIndex --- 当前位置
+ @discussion 用于设置底部信息栏的内容
+ */
+- (NSString *)getImageSynopsis:(NSInteger)currIndex;
 
 /*!
  @method
@@ -117,9 +126,11 @@
 - (void)transitionDoneAnimateion:(BOOL)isPresent complete:(void(^)(void))complete;
 - (void)dismiss;
 
+@property (nonatomic, assign) BOOL isShowProgress;
+@property (nonatomic, assign) BOOL isShowNavigationBar;
+
 @property (nonatomic, weak, readonly) UIView *bgView;
 @property (nonatomic, weak, readonly) UICollectionView *collectionView;
-@property (nonatomic, assign, readonly) CGRect contentFrame;
 
 @property (nonatomic, weak) id<JPBrowseImagesDelegate> delegate;
 @property (nonatomic, copy) NSArray<JPBrowseImageModel *> *dataSource;

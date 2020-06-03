@@ -10,6 +10,7 @@
 #import "UINavigationBar+JPExtension.h"
 #import "CustomNavBgView.h"
 #import "SunOrderAreaViewController.h"
+#import "JPPhotoViewController.h"
 
 @interface JPMainTableViewController ()
 @property (nonatomic, strong) NSArray<NSString *> *subVcNames;
@@ -49,8 +50,9 @@
                         @" 个人主页",
                         @" 产品详情页",
                         @" 商品详情页",
-                        @" 作品详情页",
-                        @" 主题活动中心"];
+                        @" 作品详情页",
+                        @" 主题活动中心",
+                        @" Infinitee相册"];
 }
 
 - (void)__setupNavigationBar {
@@ -115,6 +117,16 @@
             SunOrderAreaViewController *soaVC = [[SunOrderAreaViewController alloc] initWithDataSource:nil isFromBeginGuide:NO];
             [self.navigationController pushViewController:soaVC animated:YES];
             break;
+        }
+        case 6:
+        {
+            @jp_weakify(self);
+            JPPhotoViewController *photoVC =[[JPPhotoViewController alloc] initWithTitle:@"选择照片" maxSelectedCount:5 confirmHandle:^(NSArray<JPPhotoViewModel *> *selectedPhotoVMs) {
+                @jp_strongify(self);
+                if (!self) return;
+                
+            }];
+            [self.navigationController pushViewController:photoVC animated:YES];
         }
         default:
             [JPProgressHUD showSuccessWithStatus:@"敬请期待~" userInteractionEnabled:YES];

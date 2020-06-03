@@ -21,7 +21,7 @@
                                              target:(id)target
                                       dismissAction:(SEL)dismissAction
                                         otherAction:(SEL)otherAction {
-    JPBrowseImagesTopView *topView = [[self alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, JPNavTopMargin) total:total index:index target:target dismissAction:dismissAction otherAction:otherAction];
+    JPBrowseImagesTopView *topView = [[self alloc] initWithFrame:CGRectMake(0, 0, JPPortraitScreenWidth, JPNavTopMargin) total:total index:index target:target dismissAction:dismissAction otherAction:otherAction];
     return topView;
 }
 

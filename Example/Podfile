@@ -12,7 +12,7 @@ target 'InfiniteeUI_Example' do
   pod 'MJRefresh'
   pod 'Shimmer'
   pod 'YYWebImage'
-
+  
   target 'InfiniteeUI_Tests' do
     inherit! :search_paths
 

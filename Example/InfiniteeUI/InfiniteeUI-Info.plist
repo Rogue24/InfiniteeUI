@@ -63,5 +63,11 @@
 	<string>Light</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>我想访问媒体库。</string>
+	<key>NSCameraUsageDescription</key>
+	<string>我想打开相机。</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>我想访问相册。</string>
 </dict>
 </plist>

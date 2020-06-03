@@ -11,6 +11,17 @@
 		1A868CE42473EC260086EF87 /* JPFadeFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A868CE22473EC210086EF87 /* JPFadeFlowLayout.m */; };
 		1A868CE924740B670086EF87 /* infiniteeUiLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A868CE824740B670086EF87 /* infiniteeUiLogo.png */; };
 		1A868CEC24742FB10086EF87 /* JPMainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A868CEB24742FB10086EF87 /* JPMainTableViewController.m */; };
+		1A8B1E2A24851081004C8A85 /* JPPhotoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B1E1124851081004C8A85 /* JPPhotoViewModel.m */; };
+		1A8B1E2B24851081004C8A85 /* JPAlbumViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B1E1224851081004C8A85 /* JPAlbumViewModel.m */; };
+		1A8B1E2F24851081004C8A85 /* JPPhotoCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B1E1B24851081004C8A85 /* JPPhotoCollectionViewController.m */; };
+		1A8B1E3024851081004C8A85 /* JPPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B1E1E24851081004C8A85 /* JPPhotoViewController.m */; };
+		1A8B1E3124851081004C8A85 /* JPPhotoCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B1E2024851081004C8A85 /* JPPhotoCollectionViewFlowLayout.m */; };
+		1A8B1E3224851081004C8A85 /* JPPhotoSelectedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B1E2124851081004C8A85 /* JPPhotoSelectedView.m */; };
+		1A8B1E3324851081004C8A85 /* JPPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B1E2224851081004C8A85 /* JPPhotoCell.m */; };
+		1A8B1E3424851081004C8A85 /* JPPhotoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B1E2924851081004C8A85 /* JPPhotoTool.m */; };
+		1A8B1E3C2485EAF6004C8A85 /* JPCategoryTitleViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B1E362485EAF6004C8A85 /* JPCategoryTitleViewModel.m */; };
+		1A8B1E3D2485EAF6004C8A85 /* JPCategoryTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B1E392485EAF6004C8A85 /* JPCategoryTitleCell.m */; };
+		1A8B1E3E2485EAF6004C8A85 /* JPCategoryTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B1E3B2485EAF6004C8A85 /* JPCategoryTitleView.m */; };
 		1A940AAA2472739B00E04D31 /* orderShareComment_1009.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A940A952472739B00E04D31 /* orderShareComment_1009.plist */; };
 		1A940AAB2472739B00E04D31 /* orderShareComment_1010.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A940A962472739B00E04D31 /* orderShareComment_1010.plist */; };
 		1A940AAC2472739B00E04D31 /* orderShareComment_1008.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A940A972472739B00E04D31 /* orderShareComment_1008.plist */; };
@@ -147,6 +158,29 @@
 		1A868CE824740B670086EF87 /* infiniteeUiLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infiniteeUiLogo.png; sourceTree = "<group>"; };
 		1A868CEA24742FB10086EF87 /* JPMainTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPMainTableViewController.h; sourceTree = "<group>"; };
 		1A868CEB24742FB10086EF87 /* JPMainTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPMainTableViewController.m; sourceTree = "<group>"; };
+		1A8B1E0F24851081004C8A85 /* JPAlbumViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPAlbumViewModel.h; sourceTree = "<group>"; };
+		1A8B1E1024851081004C8A85 /* JPPhotoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPPhotoViewModel.h; sourceTree = "<group>"; };
+		1A8B1E1124851081004C8A85 /* JPPhotoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPPhotoViewModel.m; sourceTree = "<group>"; };
+		1A8B1E1224851081004C8A85 /* JPAlbumViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPAlbumViewModel.m; sourceTree = "<group>"; };
+		1A8B1E1B24851081004C8A85 /* JPPhotoCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPPhotoCollectionViewController.m; sourceTree = "<group>"; };
+		1A8B1E1C24851081004C8A85 /* JPPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPPhotoViewController.h; sourceTree = "<group>"; };
+		1A8B1E1D24851081004C8A85 /* JPPhotoCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPPhotoCollectionViewController.h; sourceTree = "<group>"; };
+		1A8B1E1E24851081004C8A85 /* JPPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPPhotoViewController.m; sourceTree = "<group>"; };
+		1A8B1E2024851081004C8A85 /* JPPhotoCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPPhotoCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		1A8B1E2124851081004C8A85 /* JPPhotoSelectedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPPhotoSelectedView.m; sourceTree = "<group>"; };
+		1A8B1E2224851081004C8A85 /* JPPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPPhotoCell.m; sourceTree = "<group>"; };
+		1A8B1E2324851081004C8A85 /* JPPhotoSelectedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPPhotoSelectedView.h; sourceTree = "<group>"; };
+		1A8B1E2424851081004C8A85 /* JPPhotoCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPPhotoCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		1A8B1E2524851081004C8A85 /* JPPictureChooseCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPPictureChooseCellProtocol.h; sourceTree = "<group>"; };
+		1A8B1E2624851081004C8A85 /* JPPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPPhotoCell.h; sourceTree = "<group>"; };
+		1A8B1E2824851081004C8A85 /* JPPhotoTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPPhotoTool.h; sourceTree = "<group>"; };
+		1A8B1E2924851081004C8A85 /* JPPhotoTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPPhotoTool.m; sourceTree = "<group>"; };
+		1A8B1E362485EAF6004C8A85 /* JPCategoryTitleViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPCategoryTitleViewModel.m; sourceTree = "<group>"; };
+		1A8B1E372485EAF6004C8A85 /* JPCategoryTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPCategoryTitleCell.h; sourceTree = "<group>"; };
+		1A8B1E382485EAF6004C8A85 /* JPCategoryTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPCategoryTitleView.h; sourceTree = "<group>"; };
+		1A8B1E392485EAF6004C8A85 /* JPCategoryTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPCategoryTitleCell.m; sourceTree = "<group>"; };
+		1A8B1E3A2485EAF6004C8A85 /* JPCategoryTitleViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPCategoryTitleViewModel.h; sourceTree = "<group>"; };
+		1A8B1E3B2485EAF6004C8A85 /* JPCategoryTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPCategoryTitleView.m; sourceTree = "<group>"; };
 		1A940A952472739B00E04D31 /* orderShareComment_1009.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = orderShareComment_1009.plist; sourceTree = "<group>"; };
 		1A940A962472739B00E04D31 /* orderShareComment_1010.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = orderShareComment_1010.plist; sourceTree = "<group>"; };
 		1A940A972472739B00E04D31 /* orderShareComment_1008.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = orderShareComment_1008.plist; sourceTree = "<group>"; };
@@ -353,6 +387,76 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A8B1E0D24851081004C8A85 /* PhotoAlbum */ = {
+			isa = PBXGroup;
+			children = (
+				1A8B1E1A24851081004C8A85 /* Controller */,
+				1A8B1E1F24851081004C8A85 /* View */,
+				1A8B1E0E24851081004C8A85 /* ViewModel */,
+				1A8B1E2724851081004C8A85 /* Tool */,
+			);
+			path = PhotoAlbum;
+			sourceTree = "<group>";
+		};
+		1A8B1E0E24851081004C8A85 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1A8B1E0F24851081004C8A85 /* JPAlbumViewModel.h */,
+				1A8B1E1224851081004C8A85 /* JPAlbumViewModel.m */,
+				1A8B1E1024851081004C8A85 /* JPPhotoViewModel.h */,
+				1A8B1E1124851081004C8A85 /* JPPhotoViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1A8B1E1A24851081004C8A85 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1A8B1E1C24851081004C8A85 /* JPPhotoViewController.h */,
+				1A8B1E1E24851081004C8A85 /* JPPhotoViewController.m */,
+				1A8B1E1D24851081004C8A85 /* JPPhotoCollectionViewController.h */,
+				1A8B1E1B24851081004C8A85 /* JPPhotoCollectionViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1A8B1E1F24851081004C8A85 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1A8B1E352485EAF6004C8A85 /* JPCategoryTitleView */,
+				1A8B1E2624851081004C8A85 /* JPPhotoCell.h */,
+				1A8B1E2224851081004C8A85 /* JPPhotoCell.m */,
+				1A8B1E2424851081004C8A85 /* JPPhotoCollectionViewFlowLayout.h */,
+				1A8B1E2024851081004C8A85 /* JPPhotoCollectionViewFlowLayout.m */,
+				1A8B1E2324851081004C8A85 /* JPPhotoSelectedView.h */,
+				1A8B1E2124851081004C8A85 /* JPPhotoSelectedView.m */,
+				1A8B1E2524851081004C8A85 /* JPPictureChooseCellProtocol.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1A8B1E2724851081004C8A85 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				1A8B1E2824851081004C8A85 /* JPPhotoTool.h */,
+				1A8B1E2924851081004C8A85 /* JPPhotoTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		1A8B1E352485EAF6004C8A85 /* JPCategoryTitleView */ = {
+			isa = PBXGroup;
+			children = (
+				1A8B1E382485EAF6004C8A85 /* JPCategoryTitleView.h */,
+				1A8B1E3B2485EAF6004C8A85 /* JPCategoryTitleView.m */,
+				1A8B1E372485EAF6004C8A85 /* JPCategoryTitleCell.h */,
+				1A8B1E392485EAF6004C8A85 /* JPCategoryTitleCell.m */,
+				1A8B1E3A2485EAF6004C8A85 /* JPCategoryTitleViewModel.h */,
+				1A8B1E362485EAF6004C8A85 /* JPCategoryTitleViewModel.m */,
+			);
+			path = JPCategoryTitleView;
+			sourceTree = "<group>";
+		};
 		1A940A902472739B00E04D31 /* demo_data */ = {
 			isa = PBXGroup;
 			children = (
@@ -399,6 +503,7 @@
 			children = (
 				1A94EA9C2471414600E04D31 /* Main */,
 				1A94EA7B2471414600E04D31 /* SunOrder */,
+				1A8B1E0D24851081004C8A85 /* PhotoAlbum */,
 			);
 			path = InfiniteeUI;
 			sourceTree = "<group>";
@@ -1055,7 +1160,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A94EAD92471414600E04D31 /* SunOrderTitleCell.m in Sources */,
+				1A8B1E3024851081004C8A85 /* JPPhotoViewController.m in Sources */,
 				1A94F2F32472300B00E04D31 /* UIViewController+WMPageController.m in Sources */,
+				1A8B1E3E2485EAF6004C8A85 /* JPCategoryTitleView.m in Sources */,
 				1A94EADC2471414600E04D31 /* UIFont+InfiniteeFont.m in Sources */,
 				1A94F2DE24722A9F00E04D31 /* UIButton+JPExtension.m in Sources */,
 				1A94EADE2471414600E04D31 /* UIApplication+JPExtension.m in Sources */,
@@ -1063,12 +1170,15 @@
 				1A94F2DF24722A9F00E04D31 /* JPImageView.m in Sources */,
 				1A94F30D2472331600E04D31 /* JPBrowseImagesTransition.m in Sources */,
 				1A94F31E2472360800E04D31 /* NSString+Extension.m in Sources */,
+				1A8B1E3D2485EAF6004C8A85 /* JPCategoryTitleCell.m in Sources */,
+				1A8B1E3324851081004C8A85 /* JPPhotoCell.m in Sources */,
 				1A94EAD12471414600E04D31 /* SunOrderAreaViewController.m in Sources */,
 				1A94EACF2471414600E04D31 /* SunOrderListViewController.m in Sources */,
 				1A94EACE2471414600E04D31 /* SunOrderInfoListViewController.m in Sources */,
 				1A94F2FF247230B900E04D31 /* InfiniteeTextLayoutParameter.m in Sources */,
 				1A868CEC24742FB10086EF87 /* JPMainTableViewController.m in Sources */,
 				1A94F2E224722A9F00E04D31 /* YYWebImageHelper.m in Sources */,
+				1A8B1E3424851081004C8A85 /* JPPhotoTool.m in Sources */,
 				1A94EAD02471414600E04D31 /* SunOrderNavigationViewController.m in Sources */,
 				1A94F2E724722EFB00E04D31 /* NoDataView.m in Sources */,
 				1A94F3102472331600E04D31 /* JPBrowseImagesViewController.m in Sources */,
@@ -1078,17 +1188,20 @@
 				1A94EAFD2471414700E04D31 /* InfiniteeConst.m in Sources */,
 				1A94F2F42472300B00E04D31 /* WMScrollView.m in Sources */,
 				1A94F2E024722A9F00E04D31 /* JPWebImageManager.m in Sources */,
+				1A8B1E3C2485EAF6004C8A85 /* JPCategoryTitleViewModel.m in Sources */,
 				1A94EAD32471414600E04D31 /* SunOrderDetailViewModel.m in Sources */,
 				1A94EAD22471414600E04D31 /* SunOrderTransition.m in Sources */,
 				1A94EADB2471414600E04D31 /* JPSunOrderDataTool.m in Sources */,
 				1A94EAD82471414600E04D31 /* SunOrderImageCell.m in Sources */,
 				1A94F2FE247230B800E04D31 /* InfiniteeTextLayoutTool.m in Sources */,
 				1A868CE12473C0970086EF87 /* CustomNavBgView.m in Sources */,
+				1A8B1E2F24851081004C8A85 /* JPPhotoCollectionViewController.m in Sources */,
 				6003F59E195388D20070C39A /* JPAppDelegate.m in Sources */,
 				1A94F3182472356E00E04D31 /* FullScreenScrollView.m in Sources */,
 				1A94F2E124722A9F00E04D31 /* UIImageView+JPExtension.m in Sources */,
 				1A94F315247234B600E04D31 /* UIBarButtonItem+Extension.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				1A8B1E2A24851081004C8A85 /* JPPhotoViewModel.m in Sources */,
 				1A94F3122472331600E04D31 /* JPBrowseImagesTopView.m in Sources */,
 				1A94F2F22472300B00E04D31 /* WMPageController.m in Sources */,
 				1A94EB01247141C400E04D31 /* Log+TFUnicodeReadable.m in Sources */,
@@ -1105,9 +1218,12 @@
 				1A94EAD62471414600E04D31 /* SunOrderCategoryModel.m in Sources */,
 				1A94F33A2472405600E04D31 /* InfiniteeRefreshFooter.m in Sources */,
 				1A94F32F24723F0900E04D31 /* JPNavigationTitleLabel.m in Sources */,
+				1A8B1E2B24851081004C8A85 /* JPAlbumViewModel.m in Sources */,
+				1A8B1E3224851081004C8A85 /* JPPhotoSelectedView.m in Sources */,
 				1A868CE42473EC260086EF87 /* JPFadeFlowLayout.m in Sources */,
 				1A94F30F2472331600E04D31 /* JPBrowseImagesBottomView.m in Sources */,
 				1A94F3392472405600E04D31 /* InfiniteeRefreshHeader.m in Sources */,
+				1A8B1E3124851081004C8A85 /* JPPhotoCollectionViewFlowLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
