@@ -10,7 +10,7 @@
 
 目前先整合以下部分模块：
 
-## 晒单转区
+## 晒单专区
 ![sunorder](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/sunorder.gif)
 
 ## 流式相册
