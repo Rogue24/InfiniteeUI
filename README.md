@@ -13,7 +13,7 @@
 ## 晒单转区
 ![sunorder](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/sunorder.gif)
 
-## 自定义相册
+## 流式相册
 ![profile](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/photoalbum.gif)
 
 ## 个人主页（整合ing）
