@@ -213,8 +213,6 @@ static NSString *const JPPhotoCellID = @"JPPhotoCell";
     }
 }
 
-
-
 - (void)requestPhotosWithComplete:(void (^)(NSInteger))complete {
     if (_isRequested) return;
     _isRequested = YES;

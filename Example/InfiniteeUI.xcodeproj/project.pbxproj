@@ -708,18 +708,18 @@
 		1A94F3002472331500E04D31 /* JPBrowseImagesViewController */ = {
 			isa = PBXGroup;
 			children = (
+				1A94F3012472331500E04D31 /* JPBrowseImagesViewController.h */,
+				1A94F3082472331500E04D31 /* JPBrowseImagesViewController.m */,
+				1A94F3092472331500E04D31 /* JPBrowseImagesTransition.h */,
+				1A94F3022472331500E04D31 /* JPBrowseImagesTransition.m */,
 				1A94F3072472331500E04D31 /* JPBrowseImageCell.h */,
 				1A94F3032472331500E04D31 /* JPBrowseImageCell.m */,
 				1A94F3052472331500E04D31 /* JPBrowseImageModel.h */,
 				1A94F30A2472331600E04D31 /* JPBrowseImageModel.m */,
-				1A94F30C2472331600E04D31 /* JPBrowseImagesBottomView.h */,
-				1A94F3062472331500E04D31 /* JPBrowseImagesBottomView.m */,
 				1A94F3042472331500E04D31 /* JPBrowseImagesTopView.h */,
 				1A94F30B2472331600E04D31 /* JPBrowseImagesTopView.m */,
-				1A94F3092472331500E04D31 /* JPBrowseImagesTransition.h */,
-				1A94F3022472331500E04D31 /* JPBrowseImagesTransition.m */,
-				1A94F3012472331500E04D31 /* JPBrowseImagesViewController.h */,
-				1A94F3082472331500E04D31 /* JPBrowseImagesViewController.m */,
+				1A94F30C2472331600E04D31 /* JPBrowseImagesBottomView.h */,
+				1A94F3062472331500E04D31 /* JPBrowseImagesBottomView.m */,
 			);
 			path = JPBrowseImagesViewController;
 			sourceTree = "<group>";
