@@ -538,8 +538,10 @@
 }
 
 - (UIViewController *)pageController:(WMPageController *)pageController viewControllerAtIndex:(NSInteger)index {
+    
     JPAlbumViewModel *albumVM = (JPAlbumViewModel *)self.titleView.titleVMs[index];
     JPPhotoCollectionViewController *pcVC = [JPPhotoCollectionViewController pcVCWithAlbumVM:albumVM sideMargin:8 cellSpace:2 maxWHSclae:(16.0 / 9.0) maxCol:4 pcVCDelegate:self];
+    
     if (_selectedView && _selectedView.isShowed) {
         UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)pcVC.collectionView.collectionViewLayout;
         UIEdgeInsets sectionInset = layout.sectionInset;
@@ -547,6 +549,7 @@
         layout.sectionInset = sectionInset;
         pcVC.collectionView.collectionViewLayout = layout;
     }
+    
     self.photoCollectionVCs[@(index)] = pcVC;
     return pcVC;
 }
@@ -566,6 +569,7 @@
     [self pcVC:(JPPhotoCollectionViewController *)viewController requestPhotosWithIndex:index];
     
     _isDragging = NO;
+    _startOffsetX = pageController.scrollView.bounds.size.width * (CGFloat)index;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"JPPhotoPageViewScrollDidEnd" object:nil];
     
 }
@@ -578,7 +582,7 @@
     _isDragging = YES;
     
     CGFloat offsetX = scrollView.contentOffset.x;
-    CGFloat scrollViewWidth = pageController.scrollView.bounds.size.width;
+    CGFloat scrollViewWidth = scrollView.bounds.size.width;
     
     NSInteger sourceIndex = (NSInteger)((offsetX + scrollViewWidth * 0.5) / scrollViewWidth);
     _startOffsetX = scrollViewWidth * (CGFloat)sourceIndex;

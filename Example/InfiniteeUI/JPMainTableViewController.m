@@ -76,18 +76,6 @@
     [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"JPCell"];
 }
 
-#pragma mark - 通知方法
-
-#pragma mark - 事件触发方法
-
-#pragma mark - 重写父类方法
-
-#pragma mark - 系统方法
-
-#pragma mark - 私有方法
-
-#pragma mark - 公开方法
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

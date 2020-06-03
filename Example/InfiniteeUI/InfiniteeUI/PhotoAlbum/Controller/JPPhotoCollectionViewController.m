@@ -126,7 +126,7 @@ static NSString *const JPPhotoCellID = @"JPPhotoCell";
     [self.collectionView registerClass:JPPhotoCell.class forCellWithReuseIdentifier:JPPhotoCellID];
 }
 
-#pragma mark - private method
+#pragma mark - notification method
 
 - (void)pageViewScrollDidEndHandle {
     if (self.hideScale != 0) {
@@ -302,26 +302,26 @@ static NSString *const JPPhotoCellID = @"JPPhotoCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     JPPhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:JPPhotoCellID forIndexPath:indexPath];
-    
+    cell.index = indexPath.item;
     cell.photoVM = self.photoVMs[indexPath.item];
     
-    @jp_weakify(self);
-    
-    cell.longPressBlock = ^(JPPhotoCell *pCell) {
-        @jp_strongify(self);
-        if (!self) return;
-        [self browsePhotoWithIndexPath:indexPath];
-    };
-    
-    cell.tapBlock = ^(JPPhotoCell *pCell) {
-        @jp_strongify(self);
-        if (!self) return NO;
-        if ([self.pcVCDelegate respondsToSelector:@selector(pcVC:photoDidSelected:)]) {
-            return [self.pcVCDelegate pcVC:self photoDidSelected:pCell.photoVM];
-        } else {
-            return NO;
-        }
-    };
+    if (!cell.longPressBlock) {
+        @jp_weakify(self);
+        cell.longPressBlock = ^(JPPhotoCell *pCell) {
+            @jp_strongify(self);
+            if (!self) return;
+            [self browsePhotoWithIndex:pCell.index];
+        };
+        cell.tapBlock = ^(JPPhotoCell *pCell) {
+            @jp_strongify(self);
+            if (!self) return NO;
+            if ([self.pcVCDelegate respondsToSelector:@selector(pcVC:photoDidSelected:)]) {
+                return [self.pcVCDelegate pcVC:self photoDidSelected:pCell.photoVM];
+            } else {
+                return NO;
+            }
+        };
+    }
     
     return cell;
 }
@@ -333,24 +333,10 @@ static NSString *const JPPhotoCellID = @"JPPhotoCell";
     return photoVM.jp_itemFrame.size;
 }
 
-#pragma mark - <UICollectionViewDelegate>
-
-#pragma mark - Asset Caching
-
-- (NSArray *)assetsAtIndexPaths:(NSArray *)indexPaths {
-    if (indexPaths.count == 0) { return nil; }
-    NSMutableArray *assets = [NSMutableArray arrayWithCapacity:indexPaths.count];
-    for (NSIndexPath *indexPath in indexPaths) {
-        JPPhotoViewModel *photoVM = self.photoVMs[indexPath.item];
-        if (photoVM.asset) [assets addObject:photoVM.asset];
-    }
-    return assets;
-}
-
 #pragma mark - JPPhotoCellDelegate（浏览大图）
 
-- (void)browsePhotoWithIndexPath:(NSIndexPath *)indexPath {
-    JPBrowseImagesViewController *browseVC = [JPBrowseImagesViewController browseImagesViewControllerWithDelegate:self totalCount:self.photoVMs.count currIndex:indexPath.item isShowProgress:NO isShowNavigationBar:YES];
+- (void)browsePhotoWithIndex:(NSInteger)index {
+    JPBrowseImagesViewController *browseVC = [JPBrowseImagesViewController browseImagesViewControllerWithDelegate:self totalCount:self.photoVMs.count currIndex:index isShowProgress:NO isShowNavigationBar:YES];
     [self presentViewController:browseVC animated:YES completion:nil];
 }
 
@@ -403,14 +389,6 @@ static NSString *const JPPhotoCellID = @"JPPhotoCell";
 
 - (void)requestImageFailWithModel:(JPBrowseImageModel *)model index:(NSInteger)index {
     [JPProgressHUD showErrorWithStatus:@"照片获取失败" userInteractionEnabled:YES];
-}
-
-- (NSString *)getNavigationDismissIcon {
-    return @"back";
-}
-
-- (NSString *)getNavigationOtherIcon {
-    return @"clipper";
 }
 
 - (void)browseImagesVC:(JPBrowseImagesViewController *)browseImagesVC navigationOtherHandleWithModel:(JPBrowseImageModel *)model index:(NSInteger)index {

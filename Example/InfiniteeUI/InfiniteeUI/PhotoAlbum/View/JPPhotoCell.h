@@ -15,6 +15,8 @@
 @property (nonatomic, weak, readonly) JPImageView *imageView;
 @property (nonatomic, weak, readonly) UIView *stateView;
 
+@property (nonatomic, assign) NSInteger index;
+
 @property (nonatomic, assign) CGFloat startScale;
 @property (nonatomic, assign) CGFloat endScale;
 @property (nonatomic, assign) CGFloat totalScale;
