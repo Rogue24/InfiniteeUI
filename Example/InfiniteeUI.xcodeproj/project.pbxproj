@@ -72,12 +72,6 @@
 		1A94F2F42472300B00E04D31 /* WMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A94F2F02472300A00E04D31 /* WMScrollView.m */; };
 		1A94F2FE247230B800E04D31 /* InfiniteeTextLayoutTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A94F2FB247230B800E04D31 /* InfiniteeTextLayoutTool.m */; };
 		1A94F2FF247230B900E04D31 /* InfiniteeTextLayoutParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A94F2FC247230B800E04D31 /* InfiniteeTextLayoutParameter.m */; };
-		1A94F30D2472331600E04D31 /* JPBrowseImagesTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A94F3022472331500E04D31 /* JPBrowseImagesTransition.m */; };
-		1A94F30E2472331600E04D31 /* JPBrowseImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A94F3032472331500E04D31 /* JPBrowseImageCell.m */; };
-		1A94F30F2472331600E04D31 /* JPBrowseImagesBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A94F3062472331500E04D31 /* JPBrowseImagesBottomView.m */; };
-		1A94F3102472331600E04D31 /* JPBrowseImagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A94F3082472331500E04D31 /* JPBrowseImagesViewController.m */; };
-		1A94F3112472331600E04D31 /* JPBrowseImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A94F30A2472331600E04D31 /* JPBrowseImageModel.m */; };
-		1A94F3122472331600E04D31 /* JPBrowseImagesTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A94F30B2472331600E04D31 /* JPBrowseImagesTopView.m */; };
 		1A94F315247234B600E04D31 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A94F314247234B600E04D31 /* UIBarButtonItem+Extension.m */; };
 		1A94F3182472356E00E04D31 /* FullScreenScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A94F3172472356E00E04D31 /* FullScreenScrollView.m */; };
 		1A94F31D2472360800E04D31 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A94F3192472360800E04D31 /* NSString+Hash.m */; };
@@ -264,18 +258,6 @@
 		1A94F2FB247230B800E04D31 /* InfiniteeTextLayoutTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfiniteeTextLayoutTool.m; sourceTree = "<group>"; };
 		1A94F2FC247230B800E04D31 /* InfiniteeTextLayoutParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfiniteeTextLayoutParameter.m; sourceTree = "<group>"; };
 		1A94F2FD247230B800E04D31 /* InfiniteeTextLayoutTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfiniteeTextLayoutTool.h; sourceTree = "<group>"; };
-		1A94F3012472331500E04D31 /* JPBrowseImagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPBrowseImagesViewController.h; sourceTree = "<group>"; };
-		1A94F3022472331500E04D31 /* JPBrowseImagesTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPBrowseImagesTransition.m; sourceTree = "<group>"; };
-		1A94F3032472331500E04D31 /* JPBrowseImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPBrowseImageCell.m; sourceTree = "<group>"; };
-		1A94F3042472331500E04D31 /* JPBrowseImagesTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPBrowseImagesTopView.h; sourceTree = "<group>"; };
-		1A94F3052472331500E04D31 /* JPBrowseImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPBrowseImageModel.h; sourceTree = "<group>"; };
-		1A94F3062472331500E04D31 /* JPBrowseImagesBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPBrowseImagesBottomView.m; sourceTree = "<group>"; };
-		1A94F3072472331500E04D31 /* JPBrowseImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPBrowseImageCell.h; sourceTree = "<group>"; };
-		1A94F3082472331500E04D31 /* JPBrowseImagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPBrowseImagesViewController.m; sourceTree = "<group>"; };
-		1A94F3092472331500E04D31 /* JPBrowseImagesTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPBrowseImagesTransition.h; sourceTree = "<group>"; };
-		1A94F30A2472331600E04D31 /* JPBrowseImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPBrowseImageModel.m; sourceTree = "<group>"; };
-		1A94F30B2472331600E04D31 /* JPBrowseImagesTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPBrowseImagesTopView.m; sourceTree = "<group>"; };
-		1A94F30C2472331600E04D31 /* JPBrowseImagesBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPBrowseImagesBottomView.h; sourceTree = "<group>"; };
 		1A94F313247234B600E04D31 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		1A94F314247234B600E04D31 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		1A94F3162472356E00E04D31 /* FullScreenScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullScreenScrollView.h; sourceTree = "<group>"; };
@@ -633,7 +615,6 @@
 			isa = PBXGroup;
 			children = (
 				1A94F2D024722A9F00E04D31 /* JPWebImage */,
-				1A94F3002472331500E04D31 /* JPBrowseImagesViewController */,
 				1A94F2F9247230B800E04D31 /* TextLayout */,
 				1A94F33024723F2500E04D31 /* Controller */,
 				1A94F2E424722EFB00E04D31 /* View */,
@@ -703,25 +684,6 @@
 				1A94F2FB247230B800E04D31 /* InfiniteeTextLayoutTool.m */,
 			);
 			path = TextLayout;
-			sourceTree = "<group>";
-		};
-		1A94F3002472331500E04D31 /* JPBrowseImagesViewController */ = {
-			isa = PBXGroup;
-			children = (
-				1A94F3012472331500E04D31 /* JPBrowseImagesViewController.h */,
-				1A94F3082472331500E04D31 /* JPBrowseImagesViewController.m */,
-				1A94F3092472331500E04D31 /* JPBrowseImagesTransition.h */,
-				1A94F3022472331500E04D31 /* JPBrowseImagesTransition.m */,
-				1A94F3072472331500E04D31 /* JPBrowseImageCell.h */,
-				1A94F3032472331500E04D31 /* JPBrowseImageCell.m */,
-				1A94F3052472331500E04D31 /* JPBrowseImageModel.h */,
-				1A94F30A2472331600E04D31 /* JPBrowseImageModel.m */,
-				1A94F3042472331500E04D31 /* JPBrowseImagesTopView.h */,
-				1A94F30B2472331600E04D31 /* JPBrowseImagesTopView.m */,
-				1A94F30C2472331600E04D31 /* JPBrowseImagesBottomView.h */,
-				1A94F3062472331500E04D31 /* JPBrowseImagesBottomView.m */,
-			);
-			path = JPBrowseImagesViewController;
 			sourceTree = "<group>";
 		};
 		1A94F31F2472363400E04D31 /* RegexKitLite */ = {
@@ -1168,7 +1130,6 @@
 				1A94EADE2471414600E04D31 /* UIApplication+JPExtension.m in Sources */,
 				1A94F32924723A8200E04D31 /* RequestStateTitleView.m in Sources */,
 				1A94F2DF24722A9F00E04D31 /* JPImageView.m in Sources */,
-				1A94F30D2472331600E04D31 /* JPBrowseImagesTransition.m in Sources */,
 				1A94F31E2472360800E04D31 /* NSString+Extension.m in Sources */,
 				1A8B1E3D2485EAF6004C8A85 /* JPCategoryTitleCell.m in Sources */,
 				1A8B1E3324851081004C8A85 /* JPPhotoCell.m in Sources */,
@@ -1181,9 +1142,7 @@
 				1A8B1E3424851081004C8A85 /* JPPhotoTool.m in Sources */,
 				1A94EAD02471414600E04D31 /* SunOrderNavigationViewController.m in Sources */,
 				1A94F2E724722EFB00E04D31 /* NoDataView.m in Sources */,
-				1A94F3102472331600E04D31 /* JPBrowseImagesViewController.m in Sources */,
 				1A94F31D2472360800E04D31 /* NSString+Hash.m in Sources */,
-				1A94F3112472331600E04D31 /* JPBrowseImageModel.m in Sources */,
 				1A94EAD52471414600E04D31 /* SunOrderCategoryViewModel.m in Sources */,
 				1A94EAFD2471414700E04D31 /* InfiniteeConst.m in Sources */,
 				1A94F2F42472300B00E04D31 /* WMScrollView.m in Sources */,
@@ -1202,7 +1161,6 @@
 				1A94F315247234B600E04D31 /* UIBarButtonItem+Extension.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				1A8B1E2A24851081004C8A85 /* JPPhotoViewModel.m in Sources */,
-				1A94F3122472331600E04D31 /* JPBrowseImagesTopView.m in Sources */,
 				1A94F2F22472300B00E04D31 /* WMPageController.m in Sources */,
 				1A94EB01247141C400E04D31 /* Log+TFUnicodeReadable.m in Sources */,
 				1A94F33324723F2500E04D31 /* JPNavigationController.m in Sources */,
@@ -1214,14 +1172,12 @@
 				1A94F32C24723EB100E04D31 /* UINavigation+FixSpace.m in Sources */,
 				1A94F2EA24722FC200E04D31 /* UIImage+InfiniteeImage.m in Sources */,
 				1A94F2E324722A9F00E04D31 /* JPRoundImageManager.m in Sources */,
-				1A94F30E2472331600E04D31 /* JPBrowseImageCell.m in Sources */,
 				1A94EAD62471414600E04D31 /* SunOrderCategoryModel.m in Sources */,
 				1A94F33A2472405600E04D31 /* InfiniteeRefreshFooter.m in Sources */,
 				1A94F32F24723F0900E04D31 /* JPNavigationTitleLabel.m in Sources */,
 				1A8B1E2B24851081004C8A85 /* JPAlbumViewModel.m in Sources */,
 				1A8B1E3224851081004C8A85 /* JPPhotoSelectedView.m in Sources */,
 				1A868CE42473EC260086EF87 /* JPFadeFlowLayout.m in Sources */,
-				1A94F30F2472331600E04D31 /* JPBrowseImagesBottomView.m in Sources */,
 				1A94F3392472405600E04D31 /* InfiniteeRefreshHeader.m in Sources */,
 				1A8B1E3124851081004C8A85 /* JPPhotoCollectionViewFlowLayout.m in Sources */,
 			);

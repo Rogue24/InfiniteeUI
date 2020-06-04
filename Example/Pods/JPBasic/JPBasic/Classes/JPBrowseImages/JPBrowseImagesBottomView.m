@@ -7,6 +7,7 @@
 //
 
 #import "JPBrowseImagesBottomView.h"
+#import "JPConstant.h"
 
 @interface JPBrowseImagesBottomView ()
 @property (nonatomic, weak) UILabel *synopsisLabel;
@@ -16,14 +17,16 @@
 @implementation JPBrowseImagesBottomView
 
 + (instancetype)browseImagesBottomViewWithSynopsis:(NSString *)synopsis {
+    
     JPBrowseImagesBottomView *bottomView = [[self alloc] initWithSynopsis:synopsis];
+    
     return bottomView;
 }
 
 - (instancetype)initWithSynopsis:(NSString *)synopsis {
     if (self = [super init]) {
         
-        self.maxSize = CGSizeMake(JPPortraitScreenWidth - 30, 9999);
+        self.maxSize = CGSizeMake([UIScreen mainScreen].bounds.size.width - 30, 9999);
         
         UILabel *synopsisLabel = ({
             UILabel *aLabel = [[UILabel alloc] init];

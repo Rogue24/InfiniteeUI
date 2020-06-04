@@ -7,7 +7,7 @@
 //
 
 #import "JPBadgeLabel.h"
-#import "JPSolveTool.h"
+#import "JPInline.h"
 #import "UIColor+JPExtension.h"
 #import "UIView+JPPOP.h"
 

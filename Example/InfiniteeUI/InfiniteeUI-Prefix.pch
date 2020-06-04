@@ -17,6 +17,7 @@
 #import <Masonry.h>
 #import <MJExtension.h>
 
+#import "JPInline.h"
 #import "JPMacro.h"
 #import "JPSolveTool.h"
 #import "JPProgressHUD.h"

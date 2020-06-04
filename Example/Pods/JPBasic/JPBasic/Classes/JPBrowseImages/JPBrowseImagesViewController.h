@@ -94,6 +94,20 @@
 
 /*!
  @method
+ @brief 获取导航栏退出按钮
+ @discussion isShowNavigationBar设置为YES才会触发
+ */
+- (UIButton *)getNavigationDismissButton;
+
+/*!
+ @method
+ @brief 获取导航栏右侧按钮
+ @discussion isShowNavigationBar设置为YES才会触发
+ */
+- (UIButton *)getNavigationOtherButton;
+
+/*!
+ @method
  @brief 导航栏右侧按钮的事件处理
  @param browseImagesVC --- 浏览控制器
  @param model --- 对应模型

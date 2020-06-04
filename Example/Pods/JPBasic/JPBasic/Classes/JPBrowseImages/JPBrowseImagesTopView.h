@@ -11,6 +11,8 @@
 @interface JPBrowseImagesTopView : UIView
 + (instancetype)browseImagesTopViewWithPictureTotal:(NSInteger)total
                                               index:(NSInteger)index
+                                         dismissBtn:(UIButton *)dismissBtn
+                                           otherBtn:(UIButton *)otherBtn
                                              target:(id)target
                                       dismissAction:(SEL)dismissAction
                                         otherAction:(SEL)otherAction;

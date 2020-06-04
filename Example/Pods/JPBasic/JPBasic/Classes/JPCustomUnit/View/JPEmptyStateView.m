@@ -8,7 +8,7 @@
 
 #import "JPEmptyStateView.h"
 #import <Masonry/Masonry.h>
-#import "JPSolveTool.h"
+#import "JPInline.h"
 #import "UIColor+JPExtension.h"
 
 @interface JPEmptyStateView ()

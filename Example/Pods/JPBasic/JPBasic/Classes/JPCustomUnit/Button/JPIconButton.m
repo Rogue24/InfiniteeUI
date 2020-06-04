@@ -8,6 +8,7 @@
 
 #import "JPIconButton.h"
 #import "UIView+JPExtension.h"
+#import "JPInline.h"
 #import "JPSolveTool.h"
 
 @implementation JPIconButton

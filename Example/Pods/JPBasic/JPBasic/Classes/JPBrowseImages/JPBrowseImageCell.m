@@ -8,7 +8,8 @@
 
 #import "JPBrowseImageCell.h"
 #import "JPBrowseImagesViewController.h"
-//#import <PhotosUI/PhotosUI.h>
+#import "JPInline.h"
+#import "JPMacro.h"
 
 @interface JPBrowseImageCell () <UIScrollViewDelegate>
 @property (nonatomic, weak) UIPanGestureRecognizer *panGR;
@@ -45,7 +46,9 @@
     self.backgroundColor = UIColor.clearColor;
     
     UIScrollView *scrollView = [[UIScrollView alloc] init];
-    [scrollView jp_contentInsetAdjustmentNever];
+    if (@available(iOS 11.0, *)) {
+        scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
     scrollView.frame = JPPortraitScreenBounds;
     scrollView.delegate = self;
     scrollView.minimumZoomScale = 1.0;
