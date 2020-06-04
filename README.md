@@ -6,7 +6,7 @@
 
 原工程参合了MVC和MVVC的模式开发，InfiniteeUI将以模块化方式整合出来。
 
-**PS：该项目是3年前写的，当年的新手工程，代码可能会比较乱，也可能会有些许bug存在，日后发现即修正，见谅🤥，当前的主旨是提供一些开发的思路。**
+**PS：新手工程，代码可能会比较乱，可能会有些许bug存在，日后发现即修正，见谅，当前的主旨是提供一些开发的思路。**
 
 目前先整合以下部分模块：
 
@@ -14,7 +14,7 @@
 ![sunorder](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/sunorder.gif)
 
 ## 流式相册
-![profile](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/photoalbum.gif)
+![photoalbum](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/photoalbum.gif)
 
 ## 个人主页（整合ing）
 ![profile](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/profile.gif)
