@@ -350,6 +350,17 @@ static NSString *const JPPhotoCellID = @"JPPhotoCell";
     return photoVM.jp_whScale > 0.0 ? (1.0 / photoVM.jp_whScale) : 0;
 }
 
+- (NSString *)getImageSynopsis:(NSInteger)currIndex {
+    static NSDateFormatter *dateFormatter_ = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        dateFormatter_ = [[NSDateFormatter alloc] init];
+        [dateFormatter_ setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    });
+    JPPhotoViewModel *photoVM = self.photoVMs[currIndex];
+    return [NSString stringWithFormat:@"创建于 %@", [dateFormatter_ stringFromDate:photoVM.asset.creationDate]];
+}
+
 - (BOOL)isCornerRadiusTransition:(NSInteger)currIndex {
     return NO;
 }
@@ -366,8 +377,9 @@ static NSString *const JPPhotoCellID = @"JPPhotoCell";
 }
 
 - (void)dismissComplete:(NSInteger)currIndex {
-    UICollectionViewCell *currCell = [self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:currIndex inSection:0]];
-    currCell.hidden = NO;
+    for (UICollectionViewCell *cell in self.collectionView.visibleCells) {
+        cell.hidden = NO;
+    }
 }
 
 - (void)cellRequestImage:(JPBrowseImageCell *)cell

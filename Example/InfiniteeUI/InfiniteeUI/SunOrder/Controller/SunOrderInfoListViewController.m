@@ -718,6 +718,30 @@ static NSString *const SunOrderImageCellID = @"SunOrderImageCell";
     [JPProgressHUD showErrorWithStatus:@"图片获取失败" userInteractionEnabled:YES];
 }
 
+- (UIButton *)getNavigationDismissButton {
+    UIButton *dismissBtn = ({
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
+        btn.titleLabel.font = [UIFont infiniteeFontWithSize:14];
+        btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        [btn setTitle:@"" forState:UIControlStateNormal];
+        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        btn;
+    });
+    return dismissBtn;
+}
+
+- (UIButton *)getNavigationOtherButton {
+    UIButton *shareBtn = ({
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
+        btn.titleLabel.font = [UIFont infiniteeFontWithSize:18];
+        btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+        [btn setTitle:@"" forState:UIControlStateNormal];
+        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        btn;
+    });
+    return shareBtn;
+}
+
 - (void)browseImagesVC:(JPBrowseImagesViewController *)browseImagesVC navigationOtherHandleWithModel:(JPBrowseImageModel *)model index:(NSInteger)index {
     [JPProgressHUD showErrorWithStatus:@"Demo无法分享~" userInteractionEnabled:YES];
 }
