@@ -668,6 +668,14 @@ static NSString *const SunOrderImageCellID = @"SunOrderImageCell";
     return sodVM.soModel.content;
 }
 
+- (BOOL)isCornerRadiusTransition:(BOOL)isPresent {
+    return YES;
+}
+
+- (BOOL)isAlphaTransition:(BOOL)isPresent {
+    return NO;
+}
+
 - (void)flipImageViewWithLastIndex:(NSInteger)lastIndex currIndex:(NSInteger)currIndex {
     SunOrderImageModel *lastImageModel = self.socVM.soImageModels[lastIndex];
     SunOrderImageModel *currImageModel = self.socVM.soImageModels[currIndex];
