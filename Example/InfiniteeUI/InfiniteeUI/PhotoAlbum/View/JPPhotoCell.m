@@ -28,7 +28,7 @@
         self.backgroundColor = [UIColor whiteColor];
         
         JPImageView *imageView = [JPImageView new];
-        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        imageView.contentMode = UIViewContentModeScaleToFill;
         imageView.clipsToBounds = YES;
         [self addSubview:imageView];
         [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
