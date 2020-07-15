@@ -11,28 +11,28 @@
 目前先整合以下部分模块：
 
 ## 晒单专区
-![sunorder](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/sunorder.gif)
+![sunorder](https://github.com/Rogue24/JPCover/raw/master/InfiniteeUI/sunorder.gif)
 
 ## 流式相册
-![photoalbum](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/photoalbum.gif)
+![photoalbum](https://github.com/Rogue24/JPCover/raw/master/InfiniteeUI/photoalbum.gif)
 
 ## 个人主页（整合ing）
-![profile](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/profile.gif)
+![profile](https://github.com/Rogue24/JPCover/raw/master/InfiniteeUI/profile.gif)
 
 ## 产品详情页（整合ing）
-![shopstyle](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/shopstyle.gif)
+![shopstyle](https://github.com/Rogue24/JPCover/raw/master/InfiniteeUI/shopstyle.gif)
 
 ## 商品详情页（整合ing）
-![goods](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/goods.gif)
+![goods](https://github.com/Rogue24/JPCover/raw/master/InfiniteeUI/goods.gif)
 
 ## 作品详情页（整合ing）
-![works](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/works.gif)
+![works](https://github.com/Rogue24/JPCover/raw/master/InfiniteeUI/works.gif)
 
 ## 主题活动中心（整合ing）
-![theme](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/theme.gif)
+![theme](https://github.com/Rogue24/JPCover/raw/master/InfiniteeUI/theme.gif)
 
 ## 悬浮素材列表（整合ing）
-![material](https://github.com/Rogue24/InfiniteeUI/raw/master/Cover/material.gif)
+![material](https://github.com/Rogue24/JPCover/raw/master/InfiniteeUI/material.gif)
 
     - 喜欢的话可以✨，若发现bug请反馈~
     - 将陆续整合其他模块，不定时更新。
