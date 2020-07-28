@@ -16,6 +16,12 @@
 ## 流式相册
 ![photoalbum](https://github.com/Rogue24/JPCover/raw/master/InfiniteeUI/photoalbum.gif)
 
+## 首页弹窗（整合ing）
+![homepagepop](https://github.com/Rogue24/JPCover/raw/master/InfiniteeUI/homepagepop.gif)
+
+## 搜索栏过渡（整合ing）
+![searchbar](https://github.com/Rogue24/JPCover/raw/master/InfiniteeUI/searchbar.gif)
+
 ## 个人主页（整合ing）
 ![profile](https://github.com/Rogue24/JPCover/raw/master/InfiniteeUI/profile.gif)
 
