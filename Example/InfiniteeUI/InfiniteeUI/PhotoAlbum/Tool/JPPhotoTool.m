@@ -517,7 +517,7 @@ JPSingtonImplement(JPPhotoTool)
     
     PHFetchResult *fetchResult;
     NSUInteger count = 0;
-#warning 以后加上指定类型的处理：这里是查所有类型。
+#warning JPWarning: 以后加上指定类型的处理：这里是查所有类型。
     if (assetCollection) {
         // 查找指定相册的
         fetchResult = [PHAsset fetchAssetsInAssetCollection:assetCollection options:self.baseFetchOptions]; // 目前只能拿到所有类型的，暂时不知道怎么查找相册里的指定类型
@@ -544,7 +544,7 @@ JPSingtonImplement(JPPhotoTool)
     __block NSInteger photoIndex = 0;
     
     [fetchResult enumerateObjectsUsingBlock:^(PHAsset *asset, NSUInteger idx, BOOL * _Nonnull stop) {
-#warning 以后加上指定类型的处理：可以在这里进行筛选，这里暂时只处理照片的情况。
+#warning JPWarning: 以后加上指定类型的处理：可以在这里进行筛选，这里暂时只处理照片的情况。
         if (asset.mediaType == PHAssetMediaTypeImage) {
             !fastEnumeration ? : fastEnumeration(asset, photoIndex, photoCount);
             photoIndex += 1;

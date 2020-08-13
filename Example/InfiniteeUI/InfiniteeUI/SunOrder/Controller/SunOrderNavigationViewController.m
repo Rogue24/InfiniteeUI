@@ -27,7 +27,7 @@
         self.soaVC.isAnimated = YES;
         self.transitioningDelegate = self;
         
-#warning 如果modalPresentationStyle设置了UIModalPresentationCustom模式，那么Present的fromVC就不会从容器中移除，也就是它的viewWillDisappear和viewDidDisappear都不会触发，因为没有移除它的view，它的是在toView的底下
+#warning JPWarning: 如果modalPresentationStyle设置了UIModalPresentationCustom模式，那么Present的fromVC就不会从容器中移除，也就是它的viewWillDisappear和viewDidDisappear都不会触发，因为没有移除它的view，它的是在toView的底下
         self.modalPresentationStyle = UIModalPresentationCustom;
     }
     return self;

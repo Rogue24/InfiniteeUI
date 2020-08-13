@@ -45,7 +45,8 @@
 }
 
 + (NSString *)bundleSeedID {
-    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wincompatible-pointer-types"
     NSDictionary *query = [NSDictionary dictionaryWithObjectsAndKeys:
                            kSecClassGenericPassword, kSecClass,
                            @"bundleSeedID", kSecAttrAccount,
@@ -63,6 +64,7 @@
     NSString *bundleSeedID = [[components objectEnumerator] nextObject];
     CFRelease(result);
     return bundleSeedID;
+#pragma clang diagnostic pop
 }
 
 + (NSString *)jp_stringDate {

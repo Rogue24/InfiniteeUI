@@ -601,4 +601,9 @@ static NSInteger const kWMControllerCountUndefined = -1;
     return CGRectZero;
 }
 
+- (CGRect)pageController:(WMPageController *)pageController viewControllerFrameAtIndex:(NSInteger)index {
+    NSAssert(0, @"[%@] MUST IMPLEMENT DATASOURCE METHOD `-pageController:viewControllerFrameAtIndex:`", [self.dataSource class]);
+    return CGRectZero;
+}
+
 @end

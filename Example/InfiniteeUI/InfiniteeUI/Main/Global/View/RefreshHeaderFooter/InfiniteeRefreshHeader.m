@@ -33,7 +33,7 @@
         instructionLabel.text = @"I N F I N I T E E";
         [instructionLabel sizeToFit];
         
-#warning 这个@"Porto 400"字体底部会多出大概2.5的空白，所以就先这样处理
+#warning JPWarning: 这个@"Porto 400"字体底部会多出大概2.5的空白，所以就先这样处理
         UIView *bgView = [[UIView alloc] initWithFrame:instructionLabel.bounds];
         instructionLabel.jp_y = 2.5;
         [bgView addSubview:instructionLabel];
@@ -123,7 +123,7 @@
 #pragma mark 监听拖拽比例（控件被拖出来的比例）
 - (void)setPullingPercent:(CGFloat)pullingPercent
 {
-#warning 完全不知为何会有 -0
+#warning JPWarning: 完全不知为何会有 -0
     if (pullingPercent == -0) {
         if (_changeOffsetY < 0) {
             pullingPercent = 1;

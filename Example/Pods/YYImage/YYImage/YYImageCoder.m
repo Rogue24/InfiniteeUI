@@ -889,6 +889,7 @@ CGImageRef YYCGImageCreateDecodedCopy(CGImageRef imageRef, BOOL decodeForDisplay
         CGContextDrawImage(context, CGRectMake(0, 0, width, height), imageRef); // decode
         CGImageRef newImage = CGBitmapContextCreateImage(context);
         CFRelease(context);
+        NSLog(@"解码ing %@", [NSThread currentThread]);
         return newImage;
         
     } else {

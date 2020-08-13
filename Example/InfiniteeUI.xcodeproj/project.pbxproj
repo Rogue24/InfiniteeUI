@@ -67,16 +67,12 @@
 		1A94F2E324722A9F00E04D31 /* JPRoundImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A94F2DD24722A9F00E04D31 /* JPRoundImageManager.m */; };
 		1A94F2E724722EFB00E04D31 /* NoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A94F2E624722EFB00E04D31 /* NoDataView.m */; };
 		1A94F2EA24722FC200E04D31 /* UIImage+InfiniteeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A94F2E924722FC200E04D31 /* UIImage+InfiniteeImage.m */; };
-		1A94F2F22472300B00E04D31 /* WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A94F2ED2472300A00E04D31 /* WMPageController.m */; };
-		1A94F2F32472300B00E04D31 /* UIViewController+WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A94F2EE2472300A00E04D31 /* UIViewController+WMPageController.m */; };
-		1A94F2F42472300B00E04D31 /* WMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A94F2F02472300A00E04D31 /* WMScrollView.m */; };
 		1A94F2FE247230B800E04D31 /* InfiniteeTextLayoutTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A94F2FB247230B800E04D31 /* InfiniteeTextLayoutTool.m */; };
 		1A94F2FF247230B900E04D31 /* InfiniteeTextLayoutParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A94F2FC247230B800E04D31 /* InfiniteeTextLayoutParameter.m */; };
 		1A94F315247234B600E04D31 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A94F314247234B600E04D31 /* UIBarButtonItem+Extension.m */; };
 		1A94F3182472356E00E04D31 /* FullScreenScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A94F3172472356E00E04D31 /* FullScreenScrollView.m */; };
 		1A94F31D2472360800E04D31 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A94F3192472360800E04D31 /* NSString+Hash.m */; };
 		1A94F31E2472360800E04D31 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A94F31A2472360800E04D31 /* NSString+Extension.m */; };
-		1A94F3222472363400E04D31 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A94F3212472363400E04D31 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1A94F32924723A8200E04D31 /* RequestStateTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A94F32724723A8200E04D31 /* RequestStateTitleView.m */; };
 		1A94F32C24723EB100E04D31 /* UINavigation+FixSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A94F32B24723EB100E04D31 /* UINavigation+FixSpace.m */; };
 		1A94F32F24723F0900E04D31 /* JPNavigationTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A94F32E24723F0900E04D31 /* JPNavigationTitleLabel.m */; };
@@ -116,6 +112,10 @@
 		1A94F37D247240B700E04D31 /* infinitem.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A94F35C247240B700E04D31 /* infinitem.ttf */; };
 		1A94F37E247240B700E04D31 /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A94F35D247240B700E04D31 /* iconfont.ttf */; };
 		1A94F37F247240B700E04D31 /* infinitee.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A94F35E247240B700E04D31 /* infinitee.ttf */; };
+		1AD7121F24E5318400DB4E14 /* WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD7121724E5318400DB4E14 /* WMPageController.m */; };
+		1AD7122024E5318400DB4E14 /* UIViewController+WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD7121824E5318400DB4E14 /* UIViewController+WMPageController.m */; };
+		1AD7122124E5318400DB4E14 /* WMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD7121A24E5318400DB4E14 /* WMScrollView.m */; };
+		1AD7122224E5318400DB4E14 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD7121E24E5318400DB4E14 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -248,12 +248,6 @@
 		1A94F2E624722EFB00E04D31 /* NoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoDataView.m; sourceTree = "<group>"; };
 		1A94F2E824722FC200E04D31 /* UIImage+InfiniteeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+InfiniteeImage.h"; sourceTree = "<group>"; };
 		1A94F2E924722FC200E04D31 /* UIImage+InfiniteeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+InfiniteeImage.m"; sourceTree = "<group>"; };
-		1A94F2EC2472300A00E04D31 /* WMScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMScrollView.h; sourceTree = "<group>"; };
-		1A94F2ED2472300A00E04D31 /* WMPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPageController.m; sourceTree = "<group>"; };
-		1A94F2EE2472300A00E04D31 /* UIViewController+WMPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WMPageController.m"; sourceTree = "<group>"; };
-		1A94F2EF2472300A00E04D31 /* WMPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPageController.h; sourceTree = "<group>"; };
-		1A94F2F02472300A00E04D31 /* WMScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMScrollView.m; sourceTree = "<group>"; };
-		1A94F2F12472300A00E04D31 /* UIViewController+WMPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WMPageController.h"; sourceTree = "<group>"; };
 		1A94F2FA247230B800E04D31 /* InfiniteeTextLayoutParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfiniteeTextLayoutParameter.h; sourceTree = "<group>"; };
 		1A94F2FB247230B800E04D31 /* InfiniteeTextLayoutTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfiniteeTextLayoutTool.m; sourceTree = "<group>"; };
 		1A94F2FC247230B800E04D31 /* InfiniteeTextLayoutParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfiniteeTextLayoutParameter.m; sourceTree = "<group>"; };
@@ -266,8 +260,6 @@
 		1A94F31A2472360800E04D31 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		1A94F31B2472360800E04D31 /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
 		1A94F31C2472360800E04D31 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
-		1A94F3202472363400E04D31 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
-		1A94F3212472363400E04D31 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		1A94F32724723A8200E04D31 /* RequestStateTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestStateTitleView.m; sourceTree = "<group>"; };
 		1A94F32824723A8200E04D31 /* RequestStateTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestStateTitleView.h; sourceTree = "<group>"; };
 		1A94F32A24723EB100E04D31 /* UINavigation+FixSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigation+FixSpace.h"; sourceTree = "<group>"; };
@@ -313,6 +305,14 @@
 		1A94F35C247240B700E04D31 /* infinitem.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = infinitem.ttf; sourceTree = "<group>"; };
 		1A94F35D247240B700E04D31 /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
 		1A94F35E247240B700E04D31 /* infinitee.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = infinitee.ttf; sourceTree = "<group>"; };
+		1AD7121624E5318400DB4E14 /* WMScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMScrollView.h; sourceTree = "<group>"; };
+		1AD7121724E5318400DB4E14 /* WMPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPageController.m; sourceTree = "<group>"; };
+		1AD7121824E5318400DB4E14 /* UIViewController+WMPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WMPageController.m"; sourceTree = "<group>"; };
+		1AD7121924E5318400DB4E14 /* WMPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPageController.h; sourceTree = "<group>"; };
+		1AD7121A24E5318400DB4E14 /* WMScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMScrollView.m; sourceTree = "<group>"; };
+		1AD7121B24E5318400DB4E14 /* UIViewController+WMPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WMPageController.h"; sourceTree = "<group>"; };
+		1AD7121D24E5318400DB4E14 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		1AD7121E24E5318400DB4E14 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		47E2904C6EDD566DF31484AF /* Pods-InfiniteeUI_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfiniteeUI_Example.debug.xcconfig"; path = "Target Support Files/Pods-InfiniteeUI_Example/Pods-InfiniteeUI_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		4EBCD277AC33F129E3C19B40 /* InfiniteeUI.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = InfiniteeUI.podspec; path = ../InfiniteeUI.podspec; sourceTree = "<group>"; };
 		5570829ED9943668F1F52091 /* Pods_InfiniteeUI_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InfiniteeUI_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -486,6 +486,7 @@
 				1A94EA9C2471414600E04D31 /* Main */,
 				1A94EA7B2471414600E04D31 /* SunOrder */,
 				1A8B1E0D24851081004C8A85 /* PhotoAlbum */,
+				1AD7122324E53EDA00DB4E14 /* Theme */,
 			);
 			path = InfiniteeUI;
 			sourceTree = "<group>";
@@ -662,19 +663,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		1A94F2EB2472300A00E04D31 /* WMPageController */ = {
-			isa = PBXGroup;
-			children = (
-				1A94F2F12472300A00E04D31 /* UIViewController+WMPageController.h */,
-				1A94F2EE2472300A00E04D31 /* UIViewController+WMPageController.m */,
-				1A94F2EF2472300A00E04D31 /* WMPageController.h */,
-				1A94F2ED2472300A00E04D31 /* WMPageController.m */,
-				1A94F2EC2472300A00E04D31 /* WMScrollView.h */,
-				1A94F2F02472300A00E04D31 /* WMScrollView.m */,
-			);
-			path = WMPageController;
-			sourceTree = "<group>";
-		};
 		1A94F2F9247230B800E04D31 /* TextLayout */ = {
 			isa = PBXGroup;
 			children = (
@@ -684,15 +672,6 @@
 				1A94F2FB247230B800E04D31 /* InfiniteeTextLayoutTool.m */,
 			);
 			path = TextLayout;
-			sourceTree = "<group>";
-		};
-		1A94F31F2472363400E04D31 /* RegexKitLite */ = {
-			isa = PBXGroup;
-			children = (
-				1A94F3202472363400E04D31 /* RegexKitLite.h */,
-				1A94F3212472363400E04D31 /* RegexKitLite.m */,
-			);
-			path = RegexKitLite;
 			sourceTree = "<group>";
 		};
 		1A94F33024723F2500E04D31 /* Controller */ = {
@@ -771,6 +750,45 @@
 			path = fonts;
 			sourceTree = "<group>";
 		};
+		1AD7121424E5318400DB4E14 /* ThirdLib */ = {
+			isa = PBXGroup;
+			children = (
+				1AD7121524E5318400DB4E14 /* WMPageController */,
+				1AD7121C24E5318400DB4E14 /* RegexKitLite */,
+			);
+			path = ThirdLib;
+			sourceTree = "<group>";
+		};
+		1AD7121524E5318400DB4E14 /* WMPageController */ = {
+			isa = PBXGroup;
+			children = (
+				1AD7121B24E5318400DB4E14 /* UIViewController+WMPageController.h */,
+				1AD7121824E5318400DB4E14 /* UIViewController+WMPageController.m */,
+				1AD7121924E5318400DB4E14 /* WMPageController.h */,
+				1AD7121724E5318400DB4E14 /* WMPageController.m */,
+				1AD7121624E5318400DB4E14 /* WMScrollView.h */,
+				1AD7121A24E5318400DB4E14 /* WMScrollView.m */,
+			);
+			path = WMPageController;
+			sourceTree = "<group>";
+		};
+		1AD7121C24E5318400DB4E14 /* RegexKitLite */ = {
+			isa = PBXGroup;
+			children = (
+				1AD7121D24E5318400DB4E14 /* RegexKitLite.h */,
+				1AD7121E24E5318400DB4E14 /* RegexKitLite.m */,
+			);
+			path = RegexKitLite;
+			sourceTree = "<group>";
+		};
+		1AD7122324E53EDA00DB4E14 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Theme;
+			path = InfiniteeUI/Theme;
+			sourceTree = SOURCE_ROOT;
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -808,8 +826,7 @@
 		6003F593195388D20070C39A /* Example for InfiniteeUI */ = {
 			isa = PBXGroup;
 			children = (
-				1A94F31F2472363400E04D31 /* RegexKitLite */,
-				1A94F2EB2472300A00E04D31 /* WMPageController */,
+				1AD7121424E5318400DB4E14 /* ThirdLib */,
 				1A94EA7A2471414600E04D31 /* InfiniteeUI */,
 				6003F59C195388D20070C39A /* JPAppDelegate.h */,
 				6003F59D195388D20070C39A /* JPAppDelegate.m */,
@@ -924,7 +941,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = JP;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = "zhoujianping24@hotmail.com";
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
@@ -937,10 +954,9 @@
 			};
 			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "InfiniteeUI" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -1121,9 +1137,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AD7122224E5318400DB4E14 /* RegexKitLite.m in Sources */,
 				1A94EAD92471414600E04D31 /* SunOrderTitleCell.m in Sources */,
 				1A8B1E3024851081004C8A85 /* JPPhotoViewController.m in Sources */,
-				1A94F2F32472300B00E04D31 /* UIViewController+WMPageController.m in Sources */,
 				1A8B1E3E2485EAF6004C8A85 /* JPCategoryTitleView.m in Sources */,
 				1A94EADC2471414600E04D31 /* UIFont+InfiniteeFont.m in Sources */,
 				1A94F2DE24722A9F00E04D31 /* UIButton+JPExtension.m in Sources */,
@@ -1145,7 +1161,6 @@
 				1A94F31D2472360800E04D31 /* NSString+Hash.m in Sources */,
 				1A94EAD52471414600E04D31 /* SunOrderCategoryViewModel.m in Sources */,
 				1A94EAFD2471414700E04D31 /* InfiniteeConst.m in Sources */,
-				1A94F2F42472300B00E04D31 /* WMScrollView.m in Sources */,
 				1A94F2E024722A9F00E04D31 /* JPWebImageManager.m in Sources */,
 				1A8B1E3C2485EAF6004C8A85 /* JPCategoryTitleViewModel.m in Sources */,
 				1A94EAD32471414600E04D31 /* SunOrderDetailViewModel.m in Sources */,
@@ -1161,25 +1176,26 @@
 				1A94F315247234B600E04D31 /* UIBarButtonItem+Extension.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				1A8B1E2A24851081004C8A85 /* JPPhotoViewModel.m in Sources */,
-				1A94F2F22472300B00E04D31 /* WMPageController.m in Sources */,
 				1A94EB01247141C400E04D31 /* Log+TFUnicodeReadable.m in Sources */,
 				1A94F33324723F2500E04D31 /* JPNavigationController.m in Sources */,
 				1A94EADA2471414600E04D31 /* SunOrderImageTextCell.m in Sources */,
 				1A94EAD72471414600E04D31 /* SunOrderModel.m in Sources */,
 				1A94EAD42471414600E04D31 /* SunOrderImageModel.m in Sources */,
+				1AD7121F24E5318400DB4E14 /* WMPageController.m in Sources */,
 				1A94EADD2471414600E04D31 /* UIViewController+Extension.m in Sources */,
-				1A94F3222472363400E04D31 /* RegexKitLite.m in Sources */,
 				1A94F32C24723EB100E04D31 /* UINavigation+FixSpace.m in Sources */,
 				1A94F2EA24722FC200E04D31 /* UIImage+InfiniteeImage.m in Sources */,
 				1A94F2E324722A9F00E04D31 /* JPRoundImageManager.m in Sources */,
 				1A94EAD62471414600E04D31 /* SunOrderCategoryModel.m in Sources */,
 				1A94F33A2472405600E04D31 /* InfiniteeRefreshFooter.m in Sources */,
 				1A94F32F24723F0900E04D31 /* JPNavigationTitleLabel.m in Sources */,
+				1AD7122024E5318400DB4E14 /* UIViewController+WMPageController.m in Sources */,
 				1A8B1E2B24851081004C8A85 /* JPAlbumViewModel.m in Sources */,
 				1A8B1E3224851081004C8A85 /* JPPhotoSelectedView.m in Sources */,
 				1A868CE42473EC260086EF87 /* JPFadeFlowLayout.m in Sources */,
 				1A94F3392472405600E04D31 /* InfiniteeRefreshHeader.m in Sources */,
 				1A8B1E3124851081004C8A85 /* JPPhotoCollectionViewFlowLayout.m in Sources */,
+				1AD7122124E5318400DB4E14 /* WMScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
