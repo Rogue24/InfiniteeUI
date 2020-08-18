@@ -763,6 +763,9 @@ static CGFloat itemWH_ = 0;
                 SunOrderImageModel *imageModel = imageModels[i];
                 imageView.hidden = imageModel.isAnimating;
                 [(JPImageView *)imageView setImageWithURL:imageModel.imageURL placeholder:[UIImage defaultWorksPicture]];
+//                [(JPImageView *)imageView setImageWithURL:imageModel.imageURL placeholder:[UIImage defaultWorksPicture] completion:^(UIImage *image, NSError *error, NSURL *imageURL, JPWebImageFromType jp_fromType, JPWebImageStage jp_stage) {
+//                    JPLog(@"回调到这个线程 --- %@", [NSThread currentThread]);
+//                }];
             }
         }
     }
