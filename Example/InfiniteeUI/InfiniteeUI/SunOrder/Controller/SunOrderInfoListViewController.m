@@ -69,6 +69,11 @@ static NSString *const SunOrderImageCellID = @"SunOrderImageCell";
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self setupFooter];
+}
+
 #pragma mark - 是否正在窗口显示
 
 - (BOOL)isDisplayOnWindow {
@@ -114,9 +119,6 @@ static NSString *const SunOrderImageCellID = @"SunOrderImageCell";
     collectionView.mj_header = [InfiniteeRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestNewData)];
     collectionView.mj_header.ignoredScrollViewContentInsetTop = -5;
     
-    collectionView.mj_footer = [InfiniteeRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestMoreData) bottomInset:-5];
-    collectionView.mj_footer.hidden = YES;
-    
     collectionView.delegate = self;
     collectionView.dataSource = self;
     [collectionView registerClass:[SunOrderImageCell class] forCellWithReuseIdentifier:SunOrderImageCellID];
@@ -135,12 +137,22 @@ static NSString *const SunOrderImageCellID = @"SunOrderImageCell";
     tableView.mj_header = [InfiniteeRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestNewData)];
     tableView.mj_header.ignoredScrollViewContentInsetTop = 5;
     
-    tableView.mj_footer = [InfiniteeRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestMoreData) bottomInset:-5];
-    tableView.mj_footer.hidden = YES;
-    
     tableView.delegate = self;
     tableView.dataSource = self;
     [tableView registerClass:[SunOrderImageTextCell class] forCellReuseIdentifier:SunOrderImageTextCellID];
+}
+
+- (void)setupFooter {
+    // 需要视图布局完成后再设置footer，否则会触发UITableViewAlertForLayoutOutsideViewHierarchy警告，是MJRefresh + FBShimmering引发的
+    if (!self.collectionView.mj_footer) {
+        self.collectionView.mj_footer = [InfiniteeRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestMoreData) bottomInset:-5];
+        self.collectionView.mj_footer.hidden = YES;
+    }
+    
+    if (!self.tableView.mj_footer) {
+        self.tableView.mj_footer = [InfiniteeRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestMoreData) bottomInset:-5];
+        self.tableView.mj_footer.hidden = YES;
+    }
 }
 
 #pragma mark - Api
