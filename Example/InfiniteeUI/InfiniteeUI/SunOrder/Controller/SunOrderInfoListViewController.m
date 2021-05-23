@@ -143,7 +143,7 @@ static NSString *const SunOrderImageCellID = @"SunOrderImageCell";
 }
 
 - (void)setupFooter {
-    // 需要视图布局完成后再设置footer，否则会触发UITableViewAlertForLayoutOutsideViewHierarchy警告，是MJRefresh + FBShimmering引发的
+    // 需要视图布局完成后再设置footer，否则会触发 UITableViewAlertForLayoutOutsideViewHierarchy 警告，是 MJRefresh + FBShimmering 引发的
     if (!self.collectionView.mj_footer) {
         self.collectionView.mj_footer = [InfiniteeRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestMoreData) bottomInset:-5];
         self.collectionView.mj_footer.hidden = YES;
