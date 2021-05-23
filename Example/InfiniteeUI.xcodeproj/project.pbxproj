@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A196A4B2658FD6B00B777EE /* JPDynamicPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A196A492658FD6B00B777EE /* JPDynamicPage.m */; };
+		1A196A502658FD9B00B777EE /* shape.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A196A4E2658FD9A00B777EE /* shape.ttf */; };
+		1A196A512658FD9B00B777EE /* shapeList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A196A4F2658FD9B00B777EE /* shapeList.plist */; };
+		1A196A562658FE8000B777EE /* JPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A196A552658FE8000B777EE /* JPMainViewController.m */; };
+		1A196A7D2659FB5400B777EE /* JPMainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A196A7C2659FB5400B777EE /* JPMainCell.m */; };
 		1A868CE12473C0970086EF87 /* CustomNavBgView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A868CE02473C0960086EF87 /* CustomNavBgView.m */; };
 		1A868CE42473EC260086EF87 /* JPFadeFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A868CE22473EC210086EF87 /* JPFadeFlowLayout.m */; };
 		1A868CE924740B670086EF87 /* infiniteeUiLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A868CE824740B670086EF87 /* infiniteeUiLogo.png */; };
-		1A868CEC24742FB10086EF87 /* JPMainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A868CEB24742FB10086EF87 /* JPMainTableViewController.m */; };
 		1A8B1E2A24851081004C8A85 /* JPPhotoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B1E1124851081004C8A85 /* JPPhotoViewModel.m */; };
 		1A8B1E2B24851081004C8A85 /* JPAlbumViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B1E1224851081004C8A85 /* JPAlbumViewModel.m */; };
 		1A8B1E2F24851081004C8A85 /* JPPhotoCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B1E1B24851081004C8A85 /* JPPhotoCollectionViewController.m */; };
@@ -145,13 +149,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A196A492658FD6B00B777EE /* JPDynamicPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPDynamicPage.m; sourceTree = "<group>"; };
+		1A196A4A2658FD6B00B777EE /* JPDynamicPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPDynamicPage.h; sourceTree = "<group>"; };
+		1A196A4E2658FD9A00B777EE /* shape.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = shape.ttf; sourceTree = "<group>"; };
+		1A196A4F2658FD9B00B777EE /* shapeList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shapeList.plist; sourceTree = "<group>"; };
+		1A196A542658FE8000B777EE /* JPMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPMainViewController.h; sourceTree = "<group>"; };
+		1A196A552658FE8000B777EE /* JPMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPMainViewController.m; sourceTree = "<group>"; };
+		1A196A7B2659FB5400B777EE /* JPMainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPMainCell.h; sourceTree = "<group>"; };
+		1A196A7C2659FB5400B777EE /* JPMainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPMainCell.m; sourceTree = "<group>"; };
 		1A868CDF2473C0960086EF87 /* CustomNavBgView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavBgView.h; sourceTree = "<group>"; };
 		1A868CE02473C0960086EF87 /* CustomNavBgView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavBgView.m; sourceTree = "<group>"; };
 		1A868CE22473EC210086EF87 /* JPFadeFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPFadeFlowLayout.m; sourceTree = "<group>"; };
 		1A868CE32473EC260086EF87 /* JPFadeFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPFadeFlowLayout.h; sourceTree = "<group>"; };
 		1A868CE824740B670086EF87 /* infiniteeUiLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infiniteeUiLogo.png; sourceTree = "<group>"; };
-		1A868CEA24742FB10086EF87 /* JPMainTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPMainTableViewController.h; sourceTree = "<group>"; };
-		1A868CEB24742FB10086EF87 /* JPMainTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPMainTableViewController.m; sourceTree = "<group>"; };
 		1A8B1E0F24851081004C8A85 /* JPAlbumViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPAlbumViewModel.h; sourceTree = "<group>"; };
 		1A8B1E1024851081004C8A85 /* JPPhotoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPPhotoViewModel.h; sourceTree = "<group>"; };
 		1A8B1E1124851081004C8A85 /* JPPhotoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPPhotoViewModel.m; sourceTree = "<group>"; };
@@ -746,6 +756,8 @@
 				1A94F35E247240B700E04D31 /* infinitee.ttf */,
 				1A94F35C247240B700E04D31 /* infinitem.ttf */,
 				1A94F35B247240B700E04D31 /* Porto-400.ttf */,
+				1A196A4E2658FD9A00B777EE /* shape.ttf */,
+				1A196A4F2658FD9B00B777EE /* shapeList.plist */,
 			);
 			path = fonts;
 			sourceTree = "<group>";
@@ -831,8 +843,12 @@
 				6003F59C195388D20070C39A /* JPAppDelegate.h */,
 				6003F59D195388D20070C39A /* JPAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				1A868CEA24742FB10086EF87 /* JPMainTableViewController.h */,
-				1A868CEB24742FB10086EF87 /* JPMainTableViewController.m */,
+				1A196A542658FE8000B777EE /* JPMainViewController.h */,
+				1A196A552658FE8000B777EE /* JPMainViewController.m */,
+				1A196A7B2659FB5400B777EE /* JPMainCell.h */,
+				1A196A7C2659FB5400B777EE /* JPMainCell.m */,
+				1A196A4A2658FD6B00B777EE /* JPDynamicPage.h */,
+				1A196A492658FD6B00B777EE /* JPDynamicPage.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -986,6 +1002,7 @@
 				1A94F364247240B700E04D31 /* Refresh_11.png in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				1A94F36D247240B700E04D31 /* Refresh_19.png in Resources */,
+				1A196A512658FD9B00B777EE /* shapeList.plist in Resources */,
 				1A94F369247240B700E04D31 /* Refresh_26.png in Resources */,
 				1A94F37C247240B700E04D31 /* Porto-400.ttf in Resources */,
 				1A94F37E247240B700E04D31 /* iconfont.ttf in Resources */,
@@ -1001,6 +1018,7 @@
 				1A94F36C247240B700E04D31 /* Refresh_3.png in Resources */,
 				1A94F376247240B700E04D31 /* Refresh_5.png in Resources */,
 				1A940AB72472739B00E04D31 /* orderShareComment_10001.plist in Resources */,
+				1A196A502658FD9B00B777EE /* shape.ttf in Resources */,
 				1A94F366247240B700E04D31 /* Refresh_14.png in Resources */,
 				1A94F379247240B700E04D31 /* Refresh_4.png in Resources */,
 				1A940ABB2472739B00E04D31 /* productionCategoryForComment.plist in Resources */,
@@ -1099,6 +1117,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-InfiniteeUI_Example/Pods-InfiniteeUI_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/JPBasic/JPBasic.framework",
 				"${BUILT_PRODUCTS_DIR}/JPLiquidLayout/JPLiquidLayout.framework",
+				"${PODS_ROOT}/LookinServer/LookinServer.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
@@ -1114,6 +1133,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JPBasic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JPLiquidLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LookinServer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
@@ -1153,18 +1173,19 @@
 				1A94EACF2471414600E04D31 /* SunOrderListViewController.m in Sources */,
 				1A94EACE2471414600E04D31 /* SunOrderInfoListViewController.m in Sources */,
 				1A94F2FF247230B900E04D31 /* InfiniteeTextLayoutParameter.m in Sources */,
-				1A868CEC24742FB10086EF87 /* JPMainTableViewController.m in Sources */,
 				1A94F2E224722A9F00E04D31 /* YYWebImageHelper.m in Sources */,
 				1A8B1E3424851081004C8A85 /* JPPhotoTool.m in Sources */,
 				1A94EAD02471414600E04D31 /* SunOrderNavigationViewController.m in Sources */,
 				1A94F2E724722EFB00E04D31 /* NoDataView.m in Sources */,
 				1A94F31D2472360800E04D31 /* NSString+Hash.m in Sources */,
+				1A196A4B2658FD6B00B777EE /* JPDynamicPage.m in Sources */,
 				1A94EAD52471414600E04D31 /* SunOrderCategoryViewModel.m in Sources */,
 				1A94EAFD2471414700E04D31 /* InfiniteeConst.m in Sources */,
 				1A94F2E024722A9F00E04D31 /* JPWebImageManager.m in Sources */,
 				1A8B1E3C2485EAF6004C8A85 /* JPCategoryTitleViewModel.m in Sources */,
 				1A94EAD32471414600E04D31 /* SunOrderDetailViewModel.m in Sources */,
 				1A94EAD22471414600E04D31 /* SunOrderTransition.m in Sources */,
+				1A196A562658FE8000B777EE /* JPMainViewController.m in Sources */,
 				1A94EADB2471414600E04D31 /* JPSunOrderDataTool.m in Sources */,
 				1A94EAD82471414600E04D31 /* SunOrderImageCell.m in Sources */,
 				1A94F2FE247230B800E04D31 /* InfiniteeTextLayoutTool.m in Sources */,
@@ -1180,6 +1201,7 @@
 				1A94F33324723F2500E04D31 /* JPNavigationController.m in Sources */,
 				1A94EADA2471414600E04D31 /* SunOrderImageTextCell.m in Sources */,
 				1A94EAD72471414600E04D31 /* SunOrderModel.m in Sources */,
+				1A196A7D2659FB5400B777EE /* JPMainCell.m in Sources */,
 				1A94EAD42471414600E04D31 /* SunOrderImageModel.m in Sources */,
 				1AD7121F24E5318400DB4E14 /* WMPageController.m in Sources */,
 				1A94EADD2471414600E04D31 /* UIViewController+Extension.m in Sources */,

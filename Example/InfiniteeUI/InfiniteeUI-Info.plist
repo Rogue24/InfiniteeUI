@@ -29,12 +29,19 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>我想访问媒体库。</string>
+	<key>NSCameraUsageDescription</key>
+	<string>我想打开相机。</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>我想访问相册。</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Porto-400.ttf</string>
 		<string>infinitem.ttf</string>
 		<string>infinitee.ttf</string>
 		<string>iconfont.ttf</string>
+		<string>shape.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
@@ -49,8 +56,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -63,11 +68,5 @@
 	<string>Light</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>我想访问媒体库。</string>
-	<key>NSCameraUsageDescription</key>
-	<string>我想打开相机。</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>我想访问相册。</string>
 </dict>
 </plist>

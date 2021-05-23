@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hlz-NL-SkP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hlz-NL-SkP">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,30 +19,36 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="sNw-CA-lJv" kind="relationship" relationship="rootViewController" id="71p-cB-qfv"/>
+                        <segue destination="cPL-2x-Tuq" kind="relationship" relationship="rootViewController" id="xe1-TQ-C9a"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j5L-qj-60T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="304.80000000000001" y="432.23388305847078"/>
         </scene>
-        <!--Main Table View Controller-->
-        <scene sceneID="6eQ-dv-YOz">
+        <!--Main View Controller-->
+        <scene sceneID="bQF-NA-v6Y">
             <objects>
-                <tableViewController id="sNw-CA-lJv" customClass="JPMainTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="JEC-9F-i1T">
+                <viewController id="cPL-2x-Tuq" customClass="JPMainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gnD-8o-0i5"/>
+                        <viewControllerLayoutGuide type="bottom" id="GpL-h6-zTU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vYF-zV-ntr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <connections>
-                            <outlet property="dataSource" destination="sNw-CA-lJv" id="x1c-27-ptG"/>
-                            <outlet property="delegate" destination="sNw-CA-lJv" id="cJj-f5-X3v"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="l52-pv-MJb"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YuP-4F-3A9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jLE-Mn-1bK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eLI-vf-uG5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1292" y="432"/>
+            <point key="canvasLocation" x="1012" y="432"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

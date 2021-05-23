@@ -72,6 +72,8 @@ CGFloat const JPCursorMargin = 5.0;
     self.placeholderLabel.frame = (CGRect){CGPointMake(x, y), [self.placeholderLabel sizeThatFits:CGSizeMake(w, h)]};
 }
 
+#pragma mark - setter
+
 - (void)setTextContainerInset:(UIEdgeInsets)textContainerInset {
     [super setTextContainerInset:textContainerInset];
     [self setNeedsLayout];
@@ -93,8 +95,6 @@ CGFloat const JPCursorMargin = 5.0;
     [super setAttributedText:attributedText];
     _placeholderLabel.hidden = self.hasText;
 }
-
-#pragma mark - setter
 
 - (void)setPlaceholder:(NSString *)placeholder {
     _placeholder = [placeholder copy];
@@ -125,11 +125,40 @@ CGFloat const JPCursorMargin = 5.0;
 #pragma mark - public method
 
 - (void)setAndCheckText:(NSString *)text {
-    if (self.maxLimitNums > 0 && text.length > self.maxLimitNums) {
-        // 截取到最大位置的字符(由于超出截部分在should时被处理了在这里提高效率不再判断)
-        text = [text substringToIndex:self.maxLimitNums];
-        !self.reachMaxLimitNums ? : self.reachMaxLimitNums(self.maxLimitNums);
+    NSInteger textLength = text.length;
+    if (self.isNotCountInLineBreak) {
+        textLength = [text stringByReplacingOccurrencesOfString:@"\n" withString:@""].length;
     }
+    if (self.maxLimitNums > 0) {
+        if (textLength > self.maxLimitNums) {
+            // 截取到最大位置的字符(由于超出截部分在should时被处理了在这里提高效率不再判断)
+            if (self.isNotCountInLineBreak) {
+                __block NSInteger idx = 0;
+                __block NSString *trimString = @"";
+                [text enumerateSubstringsInRange:NSMakeRange(0, text.length) options:NSStringEnumerationByComposedCharacterSequences usingBlock: ^(NSString* substring, NSRange substringRange, NSRange enclosingRange, BOOL* stop) {
+                    if (idx >= self.maxLimitNums) {
+                        *stop = YES; // 取出所需要就break，提高效率
+                        return;
+                    }
+                    trimString = [trimString stringByAppendingString:substring];
+                    if (![substring isEqualToString:@"\n"]) {
+                        idx++;
+                    }
+                }];
+                text = trimString;
+            } else {
+                text = [text substringToIndex:self.maxLimitNums];
+            }
+            !self.reachMaxLimitNums ? : self.reachMaxLimitNums(self.maxLimitNums);
+            !self.currentLimitNums ? : self.currentLimitNums(self.maxLimitNums, self.maxLimitNums);
+        } else {
+            !self.currentLimitNums ? : self.currentLimitNums(textLength, self.maxLimitNums);
+        }
+    } else {
+        !self.currentLimitNums ? : self.currentLimitNums(textLength, 0);
+    }
+    
+    // 通过代码设置Text不会触发textViewDidChange，交互时才会触发（例如粘贴）
     [self setText:text];
     !self.textDidChange ? : self.textDidChange(self, NO);
 }
@@ -158,7 +187,10 @@ CGFloat const JPCursorMargin = 5.0;
     
     // 监听键盘点击右下角按钮是不是换行符
     if ([text isEqualToString:@"\n"]) {
-        return [self returnKeyDidClickWithNewlineRang:range];
+        // 如果返回NO，即不继续，就return
+        if (![self returnKeyDidClickWithNewlineRang:range]) {
+            return NO;
+        }
     }
     
     if (self.maxLimitNums <= 0) return YES;
@@ -174,16 +206,24 @@ CGFloat const JPCursorMargin = 5.0;
         NSRange offsetRange = NSMakeRange(startOffset, endOffset - startOffset);
         
         // 起始位置有没有超过限制字数
-        if (offsetRange.location < self.maxLimitNums) {
+        NSInteger maxLimitNums = self.maxLimitNums;
+        if (self.isNotCountInLineBreak) {
+            maxLimitNums += [textView.text componentsSeparatedByString:@"\n"].count - 1;
+        }
+        if (offsetRange.location < maxLimitNums) {
             return YES;
         } else {
             !self.reachMaxLimitNums ? : self.reachMaxLimitNums(self.maxLimitNums);
+            !self.currentLimitNums ? : self.currentLimitNums(self.maxLimitNums, self.maxLimitNums);
             !self.textDidChange ? : self.textDidChange(self, NO);
             return NO;
         }
     }
     
     NSString *comcatstr = [textView.text stringByReplacingCharactersInRange:range withString:text];
+    if (self.isNotCountInLineBreak) {
+        comcatstr = [comcatstr stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    }
     
     // 当前字数与限制字数的差值
     NSInteger caninputlen = self.maxLimitNums - comcatstr.length;
@@ -192,26 +232,33 @@ CGFloat const JPCursorMargin = 5.0;
         return YES;
     } else {
         // 当联想的字数加上当前字数超过限制时，进行处理
-        NSInteger len = text.length + caninputlen;
+        NSInteger len;
+        if (self.isNotCountInLineBreak) {
+            len = [text stringByReplacingOccurrencesOfString:@"\n" withString:@""].length;
+        } else {
+            len = text.length;
+        }
+        len += caninputlen;
         // 防止当text.length + caninputlen < 0时，使得rg.length为一个非法最大正数出错
         NSRange rg = {0, MAX(len, 0)};
         if (rg.length > 0) {
             NSString *s = @"";
             // 判断是否只普通的字符或asc码(对于中文和表情返回NO)
-            BOOL asc = [text canBeConvertedToEncoding:NSASCIIStringEncoding];
-            if (asc) {
+            if (!self.isNotCountInLineBreak && [text canBeConvertedToEncoding:NSASCIIStringEncoding]) {
                 s = [text substringWithRange:rg]; // 因为是ascii码直接取就可以了不会错
             } else {
                 __block NSInteger idx = 0;
                 __block NSString *trimString = @""; // 截取出的字串
                 // 使用字符串遍历，这个方法能准确知道每个emoji是占一个unicode还是两个
-                [text enumerateSubstringsInRange:NSMakeRange(0, [text length]) options:NSStringEnumerationByComposedCharacterSequences usingBlock: ^(NSString* substring, NSRange substringRange, NSRange enclosingRange, BOOL* stop) {
+                [text enumerateSubstringsInRange:NSMakeRange(0, text.length) options:NSStringEnumerationByComposedCharacterSequences usingBlock: ^(NSString* substring, NSRange substringRange, NSRange enclosingRange, BOOL* stop) {
                     if (idx >= rg.length) {
                         *stop = YES; // 取出所需要就break，提高效率
-                        return ;
+                        return;
                     }
                     trimString = [trimString stringByAppendingString:substring];
-                    idx++;
+                    if (!self.isNotCountInLineBreak || ![substring isEqualToString:@"\n"]) {
+                        idx++;
+                    }
                 }];
                 s = trimString;
             }
@@ -219,6 +266,7 @@ CGFloat const JPCursorMargin = 5.0;
             [textView setText:[textView.text stringByReplacingCharactersInRange:range withString:s]];
         }
         !self.reachMaxLimitNums ? : self.reachMaxLimitNums(self.maxLimitNums);
+        !self.currentLimitNums ? : self.currentLimitNums(self.maxLimitNums, self.maxLimitNums);
         !self.textDidChange ? : self.textDidChange(self, NO);
         return NO;
     }
@@ -237,19 +285,42 @@ CGFloat const JPCursorMargin = 5.0;
         return;
     }
     
+    NSString *text = textView.text;
+    NSInteger textLength = text.length;
+    if (self.isNotCountInLineBreak) {
+        textLength = [text stringByReplacingOccurrencesOfString:@"\n" withString:@""].length;
+    }
+    
     if (self.maxLimitNums <= 0) {
+        !self.currentLimitNums ? : self.currentLimitNums(textLength, 0);
         !self.textDidChange ? : self.textDidChange(self, NO);
         return;
     }
     
-    NSString *nsTextContent = textView.text;
-    NSInteger existTextNum = nsTextContent.length;
-    
-    if (existTextNum > self.maxLimitNums) {
+    if (textLength > self.maxLimitNums) {
         // 截取到最大位置的字符(由于超出截部分在should时被处理了在这里提高效率不再判断)
-        NSString *s = [nsTextContent substringToIndex:self.maxLimitNums];
-        [textView setText:s];
+        if (self.isNotCountInLineBreak) {
+            __block NSInteger idx = 0;
+            __block NSString *trimString = @"";
+            [text enumerateSubstringsInRange:NSMakeRange(0, text.length) options:NSStringEnumerationByComposedCharacterSequences usingBlock: ^(NSString* substring, NSRange substringRange, NSRange enclosingRange, BOOL* stop) {
+                if (idx >= self.maxLimitNums) {
+                    *stop = YES; // 取出所需要就break，提高效率
+                    return;
+                }
+                trimString = [trimString stringByAppendingString:substring];
+                if (![substring isEqualToString:@"\n"]) {
+                    idx++;
+                }
+            }];
+            text = trimString;
+        } else {
+            text = [text substringToIndex:self.maxLimitNums];
+        }
+        [textView setText:text];
         !self.reachMaxLimitNums ? : self.reachMaxLimitNums(self.maxLimitNums);
+        !self.currentLimitNums ? : self.currentLimitNums(self.maxLimitNums, self.maxLimitNums);
+    } else {
+        !self.currentLimitNums ? : self.currentLimitNums(textLength, self.maxLimitNums);
     }
     
     !self.textDidChange ? : self.textDidChange(self, NO);

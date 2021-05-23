@@ -13,6 +13,8 @@ target 'InfiniteeUI_Example' do
   pod 'Shimmer'
   pod 'YYWebImage'
   
+  pod 'LookinServer', :configurations => ['Debug']
+  
   target 'InfiniteeUI_Tests' do
     inherit! :search_paths
 

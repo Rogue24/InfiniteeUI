@@ -65,7 +65,10 @@ static CGSize wideVideoLandscapeSize_;
 /** 宽视频播放器在竖屏非全屏时的尺寸（视频尺寸+状态栏高度） */
 static CGSize wideVideoPlayerPortraitSize_;
 
-+ (void)load {
+/// 不可以在 load 方法里面初始化了，因为那时候 [UIApplication sharedApplication].delegate.window 为空
++ (void)initialize {
+    if (portraitScreenWidth_ > 0) return;
+    
     screenScale_ = [UIScreen mainScreen].scale;
     
     CGFloat screenW = [UIScreen mainScreen].bounds.size.width;
@@ -91,10 +94,21 @@ static CGSize wideVideoPlayerPortraitSize_;
         pageSheetPortraitScreenHeight_ -= (is_iphoneX_ ? 54.0 : 40.0);
     }
     
-    tabBarH_ = is_iphoneX_ ? 83.0 : baseTabBarH_;
-    diffTabBarH_ = tabBarH_ - baseTabBarH_;
+    tabBarH_ = baseTabBarH_;
+    if (@available(iOS 11.0, *)) {
+        UIWindow *window = [UIApplication sharedApplication].delegate.window;
+        if (!window) window = [UIApplication sharedApplication].windows.firstObject;
+        if (window) {
+            diffTabBarH_ = window.safeAreaInsets.bottom;
+        } else {
+            diffTabBarH_ = is_iphoneX_ ? 34.0 : 0;
+        }
+    } else {
+        diffTabBarH_ = is_iphoneX_ ? 34.0 : 0;
+    }
+    tabBarH_ += diffTabBarH_;
     
-    statusBarH_ = is_iphoneX_ ? 44.0 : baseStatusBarH_;
+    statusBarH_ = [UIApplication sharedApplication].statusBarFrame.size.height;
     diffStatusBarH_ = statusBarH_ - baseStatusBarH_;
     
     navTopMargin_ = statusBarH_ + navBarH_;
