@@ -33,6 +33,8 @@
         [customBgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(navBgView);
         }];
+        [navBgView setNeedsLayout];
+        [navBgView layoutIfNeeded];
     }
     self.jp_navBgView = customBgView;
     

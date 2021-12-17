@@ -7,6 +7,15 @@
 //
 
 #import "JPMainCell.h"
+#import "JPBounceView.h"
+
+@interface JPMainCell()
+@property (nonatomic, weak) JPBounceView *bounceView;
+@property (nonatomic, weak) UIImageView *imageView;
+@property (nonatomic, weak) CALayer *shadowLayer;
+@property (nonatomic, weak) UILabel *iconLabel;
+@property (nonatomic, weak) UILabel *titleLabel;
+@end
 
 @implementation JPMainCell
 
@@ -19,8 +28,8 @@ static UIColor *textColor_;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         cellID_ = @"JPMainCell";
-        iconFont_ = [UIFont infiniteeFontWithSize:JPScaleValue(25)];
-        titleFont_ = JPScaleBoldFont(12);
+        iconFont_ = [UIFont infiniteeFontWithSize:JPScaleValue(24)];
+        titleFont_ = JPScaleBoldFont(11);
         textColor_ = UIColor.whiteColor;
     });
 }
@@ -53,6 +62,7 @@ static UIColor *textColor_;
         bounceView.scaleDuration = 0.35;
         bounceView.layer.cornerRadius = JP8Margin;
         bounceView.layer.masksToBounds = YES;
+        bounceView.backgroundColor = InfiniteeBlack;
         [self.contentView addSubview:bounceView];
         self.bounceView = bounceView;
         
@@ -73,6 +83,11 @@ static UIColor *textColor_;
                 [self.imageView.layer pop_addAnimation:anim forKey:kPOPLayerScaleXY];
             }
         };
+        bounceView.viewTouchUpInside = ^(JPBounceView *kBounceView) {
+            @jp_strongify(self);
+            if (!self) return;
+            !self.didClickCell ? : self.didClickCell(self.cellModel);
+        };
         
         UIImageView *imageView = [[UIImageView alloc] init];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
@@ -80,21 +95,30 @@ static UIColor *textColor_;
         self.imageView = imageView;
         
         CALayer *shadowLayer = [CALayer layer];
-        shadowLayer.backgroundColor = JPRGBAColor(0, 0, 0, 0.35).CGColor;
+        shadowLayer.backgroundColor = JPRGBAColor(0, 0, 0, 0.1).CGColor;
         [bounceView.layer addSublayer:shadowLayer];
         self.shadowLayer = shadowLayer;
         
         UILabel *iconLabel = [[UILabel alloc] init];
         iconLabel.textAlignment = NSTextAlignmentCenter;
-        iconLabel.font = iconFont_;
         iconLabel.textColor = textColor_;
+        iconLabel.font = iconFont_;
+        iconLabel.layer.shadowColor = JPRGBAColor(0, 0, 0, 0.5).CGColor;
+        iconLabel.layer.shadowOpacity = 1;
+        iconLabel.layer.shadowRadius = 6;
+        iconLabel.layer.shadowOffset = CGSizeMake(0, 5);
         [bounceView addSubview:iconLabel];
         self.iconLabel = iconLabel;
         
         UILabel *titleLabel = [[UILabel alloc] init];
         titleLabel.textAlignment = NSTextAlignmentCenter;
-        titleLabel.font = titleFont_;
+        titleLabel.textAlignment = NSTextAlignmentCenter;
         titleLabel.textColor = textColor_;
+        titleLabel.font = titleFont_;
+        titleLabel.layer.shadowColor = JPRGBAColor(0, 0, 0, 0.5).CGColor;
+        titleLabel.layer.shadowOpacity = 1;
+        titleLabel.layer.shadowRadius = 6;
+        titleLabel.layer.shadowOffset = CGSizeMake(0, 5);
         [bounceView addSubview:titleLabel];
         self.titleLabel = titleLabel;
     }
@@ -111,8 +135,18 @@ static UIColor *textColor_;
     self.imageView.frame = self.bounceView.bounds;
     self.shadowLayer.frame = self.bounceView.bounds;
     
-    self.iconLabel.frame = CGRectMake(0, JPScaleValue(20), self.bounceView.bounds.size.width, iconFont_.lineHeight + 2);
-    self.titleLabel.frame = CGRectMake(0, self.bounceView.bounds.size.height - titleFont_.lineHeight - JPScaleValue(20), self.bounceView.bounds.size.width, titleFont_.lineHeight);
+    self.iconLabel.frame = CGRectMake(0, JPScaleValue(25), self.bounceView.bounds.size.width, iconFont_.lineHeight + 2);
+    self.titleLabel.frame = CGRectMake(0, self.bounceView.bounds.size.height - titleFont_.lineHeight - JPScaleValue(25), self.bounceView.bounds.size.width, titleFont_.lineHeight);
+}
+
+- (void)setCellModel:(JPMainCellModel *)cellModel {
+    _cellModel = cellModel;
+    
+    NSURL *randomURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://picsum.photos/400/200?random=%zd", JPRandomNumber(1, 500)]];
+    [self.imageView jp_fakeSetPictureCacheMemoryOnlyWithURL:randomURL placeholderImage:nil];
+    
+    self.iconLabel.text = cellModel.icon;
+    self.titleLabel.text = cellModel.title;
 }
 
 @end

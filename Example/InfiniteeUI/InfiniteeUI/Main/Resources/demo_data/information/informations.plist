@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>informations</key>
+	<array>
+		<dict>
+			<key>contentUrl</key>
+			<string></string>
+			<key>id</key>
+			<string>100118</string>
+			<key>name</key>
+			<string>左侧广告</string>
+			<key>picture</key>
+			<string>information/picture/e493bf6621d64673b78334675682c479.jpg</string>
+			<key>rank</key>
+			<integer>100</integer>
+			<key>showDate</key>
+			<string>2016-12-02 18:20:00</string>
+			<key>status</key>
+			<string>1</string>
+			<key>unionId</key>
+			<string></string>
+			<key>unionName</key>
+			<string></string>
+			<key>unionType</key>
+			<string></string>
+			<key>url</key>
+			<string>http://infinitee.cn/app/orderlist.html</string>
+		</dict>
+		<dict>
+			<key>contentUrl</key>
+			<string></string>
+			<key>id</key>
+			<string>100119</string>
+			<key>name</key>
+			<string>右上广告位</string>
+			<key>picture</key>
+			<string>information/picture/b23d438da87e4d3ba2f631c5ce7ba0a2.jpg</string>
+			<key>rank</key>
+			<integer>101</integer>
+			<key>showDate</key>
+			<string>2016-12-02 18:22:00</string>
+			<key>status</key>
+			<string>1</string>
+			<key>unionId</key>
+			<string></string>
+			<key>unionName</key>
+			<string></string>
+			<key>unionType</key>
+			<string></string>
+			<key>url</key>
+			<string>http://www.infinitee.cn/help/guide/goods2explore.html</string>
+		</dict>
+		<dict>
+			<key>contentUrl</key>
+			<string></string>
+			<key>id</key>
+			<string>100121</string>
+			<key>name</key>
+			<string>右下广告位</string>
+			<key>picture</key>
+			<string>information/picture/7655f796f367491ba48b0fb0afaf3e2b.jpg</string>
+			<key>rank</key>
+			<integer>102</integer>
+			<key>showDate</key>
+			<string>2016-12-02 18:23:00</string>
+			<key>status</key>
+			<string>1</string>
+			<key>unionId</key>
+			<string></string>
+			<key>unionName</key>
+			<string></string>
+			<key>unionType</key>
+			<string></string>
+			<key>url</key>
+			<string>http://www.infinitee.cn/help/guide/group-purchase.html</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -7,18 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JPBounceView.h"
-
+#import "JPMainCellModel.h"
 
 @interface JPMainCell : UICollectionViewCell
 + (NSString *)cellID;
 + (UIFont *)iconFont;
 + (UIFont *)titleFont;
 + (UIColor *)textColor;
-@property (nonatomic, weak) JPBounceView *bounceView;
-@property (nonatomic, weak) UIImageView *imageView;
-@property (nonatomic, weak) CALayer *shadowLayer;
-@property (nonatomic, weak) UILabel *iconLabel;
-@property (nonatomic, weak) UILabel *titleLabel;
+@property (nonatomic, strong) JPMainCellModel *cellModel;
+@property (nonatomic, copy) void (^didClickCell)(JPMainCellModel *cellModel);
 @end
 

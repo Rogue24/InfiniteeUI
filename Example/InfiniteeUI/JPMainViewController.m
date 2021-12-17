@@ -9,16 +9,16 @@
 #import "JPMainViewController.h"
 #import "JPDynamicPage.h"
 #import "JPMainCell.h"
-#import "UINavigationBar+JPExtension.h"
 #import "CustomNavBgView.h"
+#import "UIImageView+JPExtension.h"
 #import "SunOrderAreaViewController.h"
 #import "JPPhotoViewController.h"
-#import "UIImageView+JPExtension.h"
+#import "ThemeListViewController.h"
 
 @interface JPMainViewController () <UICollectionViewDataSource>
 @property (nonatomic, weak) JPDynamicPage *dp;
 @property (nonatomic, weak) UICollectionView *collectionView;
-@property (nonatomic, strong) NSArray<NSString *> *subVcNames;
+@property (nonatomic, copy) NSArray<JPMainCellModel *> *dataSource;
 @end
 
 @implementation JPMainViewController
@@ -28,6 +28,13 @@
 #pragma mark - setter
 
 #pragma mark - getter
+
+- (NSArray<JPMainCellModel *> *)dataSource {
+    if (!_dataSource) {
+        _dataSource = JPMainCellModel.cellModels;
+    }
+    return  _dataSource;
+}
 
 #pragma mark - 创建方法
 
@@ -39,6 +46,7 @@
     [self __setupNavigationBar];
     [self __setupDynamicPage];
     [self __setupCollectionView];
+    [self __changBgColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -51,6 +59,11 @@
     [self.dp startAnimation];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.navigationController.delegate = nil;
+}
+
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [self.dp stopAnimation];
@@ -60,13 +73,6 @@
 
 - (void)__setupBase {
     self.view.backgroundColor = InfiniteeBlue;
-    self.subVcNames = @[@" 晒单专区",
-                        @" 个人主页",
-                        @" 产品详情页",
-                        @" 商品详情页",
-                        @" 作品详情页",
-                        @" 主题活动中心",
-                        @" Infinitee相册"];
 }
 
 - (void)__setupNavigationBar {
@@ -114,49 +120,68 @@
     self.collectionView = collectionView;
 }
 
+- (void)__changBgColor {
+    @jp_weakify(self);
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        @jp_strongify(self);
+        if (!self) return;
+        [self.view jp_addPOPBasicAnimationWithPropertyNamed:kPOPViewBackgroundColor toValue:JPRandomColor duration:2.0 completionBlock:^(POPAnimation *anim, BOOL finished) {
+            @jp_strongify(self);
+            if (!self) return;
+            [self __changBgColor];
+        }];
+    });
+}
+
 #pragma mark - Collection view data source
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.subVcNames.count;
+    return self.dataSource.count;
 }
 
-- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     JPMainCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"JPMainCell" forIndexPath:indexPath];
-    
-    cell.bounceView.alpha = 0.9;
-    cell.bounceView.backgroundColor = InfiniteeBlack;
-    cell.bounceView.tag = indexPath.item;
-    
-    [cell.imageView jp_fakeSetPictureCacheMemoryOnlyWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://picsum.photos/400/200?random=%zd", JPRandomNumber(1, 100)]] placeholderImage:nil];
-    
-    NSString *subVcName = self.subVcNames[indexPath.item];
-    NSArray<NSString *> *strs = [subVcName componentsSeparatedByString:@" "];
-    cell.iconLabel.text = strs.firstObject;
-    cell.titleLabel.text = strs.lastObject;
-    
-    if (!cell.bounceView.viewTouchUpInside) {
+    if (!cell.didClickCell) {
         @jp_weakify(self);
-        cell.bounceView.viewTouchUpInside = ^(JPBounceView *kBounceView) {
+        cell.didClickCell = ^(JPMainCellModel *kCellModel) {
             @jp_strongify(self);
             if (!self) return;
-            [self jumpVC:kBounceView.tag];
+            [self jumpVC:kCellModel];
         };
     }
-    
+    cell.cellModel = self.dataSource[indexPath.item];
     return cell;
 }
 
 #pragma mark - 跳转
 
-- (void)jumpVC:(NSInteger)index {
-    switch (index) {
-        case 0:
+- (void)jumpVC:(JPMainCellModel *)cellModel {
+    switch (cellModel.type) {
+        case JPMainCellModelType_SunOrder:
         {
             SunOrderAreaViewController *soaVC = [[SunOrderAreaViewController alloc] initWithDataSource:nil isFromBeginGuide:NO];
             [self.navigationController pushViewController:soaVC animated:YES];
             break;
         }
-        case 6:
+            
+        case JPMainCellModelType_ThemeActivity:
+        {
+            [JPProgressHUD show];
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                NSString *filePath = JPMainBundleResourcePath(@"themes", @"plist");
+                NSDictionary *resultDic = [NSDictionary dictionaryWithContentsOfFile:filePath];
+                NSArray *themes = [Theme mj_objectArrayWithKeyValuesArray:resultDic[@"themes"]];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [JPProgressHUD dismiss];
+                    ThemeListViewController *tlVC = [ThemeListViewController themeListVCWithThemes:themes];
+                    self.navigationController.delegate = tlVC;
+                    [self.navigationController pushViewController:tlVC animated:YES];
+                });
+            });
+            break;
+        }
+            
+        case JPMainCellModelType_PhotoAlbum:
         {
             @jp_weakify(self);
             JPPhotoViewController *photoVC =[[JPPhotoViewController alloc] initWithTitle:@"选择照片" maxSelectedCount:5 confirmHandle:^(NSArray<JPPhotoViewModel *> *selectedPhotoVMs) {
@@ -165,7 +190,9 @@
                 
             }];
             [self.navigationController pushViewController:photoVC animated:YES];
+            break;
         }
+            
         default:
             [JPProgressHUD showSuccessWithStatus:@"敬请期待~" userInteractionEnabled:YES];
             break;

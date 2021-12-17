@@ -60,6 +60,8 @@ typedef NS_ENUM(NSUInteger, WDOperationType) {
 
 #pragma mark - 常量
 
+UIKIT_EXTERN NSString *const InfiniteeImagePath;
+
 UIKIT_EXTERN NSString *const InfiniteeDownloadTitle;
 UIKIT_EXTERN NSString *const InfiniteeShareAppName;
 UIKIT_EXTERN NSString *const InfiniteeShareContent;
@@ -286,3 +288,15 @@ UIKIT_EXTERN NSString *const IncomeExplainURLStr;
 UIKIT_EXTERN NSString *const ReturnPolicyURLStr;
 /** 产品分类总详情 */
 UIKIT_EXTERN NSString *const ProductClassificationDetailURLStr;
+
+#pragma mark - 运行时变量
+
+@interface InfiniteeConst : NSObject
+
++ (CGSize)themeCellSize;
+
++ (CGFloat)fontSize10MaxWidth;
++ (CGFloat)fontSize8MaxWidth;
++ (CGFloat)fontSize7MaxWidth;
+
+@end

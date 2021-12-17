@@ -13,8 +13,6 @@
 
 @implementation NSString (Extension)
 
-#define JPImagePath @"http://image.infinitee.cn/"
-
 + (NSString *)deviceString {
     // 需要#import "sys/utsname.h"
     struct utsname systemInfo;
@@ -88,7 +86,7 @@ static NSDateFormatter *dateFormatter;
     if ([self hasPrefix:@"http"]) {
         return self;
     }
-    NSString *url = [JPImagePath stringByAppendingString:self];
+    NSString *url = [InfiniteeImagePath stringByAppendingString:self];
     CGFloat scale = [UIScreen mainScreen].scale;
     if (size.width > 0 || size.height > 0) {
         NSInteger width = (NSInteger)size.width * scale;
@@ -126,7 +124,7 @@ static NSDateFormatter *dateFormatter;
         }
     }
     
-    NSString *url = [JPImagePath stringByAppendingString:imageURLStr];
+    NSString *url = [InfiniteeImagePath stringByAppendingString:imageURLStr];
     
     CGFloat scale = [UIScreen mainScreen].scale;
     if (size.width > 0 || size.height > 0) {
@@ -175,10 +173,10 @@ static NSDateFormatter *dateFormatter;
             if (components.hour >= 1) {
                 //今天之内，大于1小时
                 return [NSString stringWithFormat:@"%zd小时前", components.hour];
-            }else if (components.minute >= 1) {
+            } else if (components.minute >= 1) {
                 //大于1分钟且1小时之内（components.hour==0 && components.minute>=1）
                 return [NSString stringWithFormat:@"%zd分钟前", components.minute];
-            }else{
+            } else {
                 //1分钟之内（components.hour==0 && components.minute==0）
                 return @"刚刚";
             }

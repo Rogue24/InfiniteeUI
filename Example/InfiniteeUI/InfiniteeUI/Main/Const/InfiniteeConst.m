@@ -8,6 +8,8 @@
 
 #pragma mark - 常量
 
+NSString *const InfiniteeImagePath = @"http://image.infinitee.cn/";
+
 NSString *const InfiniteeDownloadTitle = @"下载APP";
 NSString *const InfiniteeShareAppName = @"【一创定制】";
 NSString *const InfiniteeShareContent = @"1件起订，素材丰富，48小时内发货，支持T恤卫衣、抱枕帆布袋等定制。微信客服：infini_01";
@@ -210,3 +212,39 @@ NSString *const PremiumExplainURLStr = @"http://www.infinitee.cn/help/commision/
 NSString *const IncomeExplainURLStr = @"http://www.infinitee.cn/help/commission-faq.html";
 NSString *const ReturnPolicyURLStr = @"http://www.infinitee.cn/help/about-exchanged.html";
 NSString *const ProductClassificationDetailURLStr = @"http://www.infinitee.cn/help/products/products.html";
+
+#pragma mark - 运行时变量
+
+static CGSize themeCellSize_;
+static CGFloat fontSize10MaxWidth_;
+static CGFloat fontSize8MaxWidth_;
+static CGFloat fontSize7MaxWidth_;
+
+@implementation InfiniteeConst
+
++ (void)initialize {
+    CGFloat actualWidth = JPPortraitScreenWidth - 2 * ViewMargin;
+    CGFloat designWidth = iPhone6Width - 2 * ViewMargin;
+    CGFloat actualHeight = actualWidth * (RecCarouselViewHeight / designWidth);
+    themeCellSize_ = CGSizeMake(actualWidth, actualHeight);
+    
+    fontSize10MaxWidth_ = [JPSolveTool oneLineTextFrameWithText:@"99K" font:[UIFont systemFontOfSize:10]].size.width;
+    fontSize8MaxWidth_ = [JPSolveTool oneLineTextFrameWithText:@"99K" font:[UIFont systemFontOfSize:8]].size.width;
+    fontSize7MaxWidth_ = [JPSolveTool oneLineTextFrameWithText:@"99K" font:[UIFont systemFontOfSize:7]].size.width;
+}
+
++ (CGSize)themeCellSize {
+    return themeCellSize_;
+}
+
++ (CGFloat)fontSize10MaxWidth {
+    return fontSize10MaxWidth_;
+}
++ (CGFloat)fontSize8MaxWidth {
+    return fontSize8MaxWidth_;
+}
++ (CGFloat)fontSize7MaxWidth {
+    return fontSize7MaxWidth_;
+}
+
+@end

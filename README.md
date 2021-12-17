@@ -16,6 +16,9 @@
 ## 流式相册
 ![photoalbum](https://github.com/Rogue24/JPCover/raw/master/InfiniteeUI/photoalbum.gif)
 
+## 主题活动中心
+![theme](https://github.com/Rogue24/JPCover/raw/master/InfiniteeUI/theme.gif)
+
 ## 首页弹窗（整合ing）
 ![homepagepop](https://github.com/Rogue24/JPCover/raw/master/InfiniteeUI/homepagepop.gif)
 
@@ -33,9 +36,6 @@
 
 ## 作品详情页（整合ing）
 ![works](https://github.com/Rogue24/JPCover/raw/master/InfiniteeUI/works.gif)
-
-## 主题活动中心（整合ing）
-![theme](https://github.com/Rogue24/JPCover/raw/master/InfiniteeUI/theme.gif)
 
 ## 悬浮素材列表（整合ing）
 ![material](https://github.com/Rogue24/JPCover/raw/master/InfiniteeUI/material.gif)

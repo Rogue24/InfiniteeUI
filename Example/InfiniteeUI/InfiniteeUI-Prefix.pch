@@ -29,6 +29,7 @@
 #import "UIColor+JPExtension.h"
 #import "NSString+JPExtension.h"
 #import "NSObject+JPExtension.h"
+#import "UINavigationBar+JPExtension.h"
 #import "JPFileTool.h"
 
 #import "InfiniteeConst.h"
